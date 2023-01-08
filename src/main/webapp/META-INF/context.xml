@@ -35,7 +35,7 @@ https://stackoverflow.com/questions/49809681/set-a-server-context-path-for-tomca
                     sudo ln -s /Users/antony/projects/present/gb-web-deployed-runnable/src/test/resources /etc/gb-web
         -->
         <PreResources className="org.apache.catalina.webresources.DirResourceSet"
-                      base="/etc/gb-web"
+                      base="/etc/diyaccounting-web"
                       webAppMount="/WEB-INF/classes"
                       readOnly="true" />
 

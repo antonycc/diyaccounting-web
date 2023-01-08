@@ -153,7 +153,9 @@ $
 
 Docker build
 ============
-```
+The Docker build is redundant because the Maven build produces a Docker image from the same Dockerfile.
+This may be useful for debugging the Docker build.
+```bash
 $ source ./github-antonycc-keys.sh
 $ ./mvnw --settings settings.xml clean install
 ... [INFO] BUILD SUCCESS ...
@@ -162,7 +164,16 @@ $ docker build --build-arg WAR_FILE=diyaccounting-web-0.1-SNAPSHOT.war .
  => exporting to image                                                                                                                  0.2s
  => => exporting layers                                                                                                                 0.2s
  => => writing image sha256:d83142d478ff321cf10ae0b21d64a34c1ada5fa3b9c53148809e4e35ac48a06b
-$ docker run -it 
+$ 
+```
+
+RUnning with Docker compose
+===========================
+```bash
+$ source ./github-antonycc-keys.sh
+$ ./mvnw --settings settings.xml clean install
+... [INFO] BUILD SUCCESS ...
+$ docker compose build 
 ```
 
 TODO: Add testing with containerised app
