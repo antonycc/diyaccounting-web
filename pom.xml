@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.0.1</version>
+		<relativePath/>
+	</parent>
+
+	<groupId>uk.co.diyaccounting.web</groupId>
+	<artifactId>diyaccounting-web</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>${project.artifactId}</name>
+	<description>DIY Accounting's GB website presentation parameterised web application template</description>
+
+	<scm>
+		<connection>scm:git:git@github.com:antonycc/diyaccounting-web.git</connection>
+		<developerConnection>scm:git:git@github.com:antonycc/diyaccounting-web.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<!-- TODO: Use distributionManagement and repositories instead of a settings.xml -->
+
+	<!-- Uncomment when updating plugin versions -->
+	<!--
+		[WARNING] The project uk.co.diyaccounting.... uses prerequisites
+		which is only intended for maven-plugin projects but not for non maven-plugin projects.
+		For such purposes you should use the maven-enforcer-plugin.
+		See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
+	-->
+	<!--prerequisites>
+		<maven>3.8</maven>
+	</prerequisites-->
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>17</java.version>
+		<maven.version>3.8</maven.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.12.2</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.31</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>uk.co.polycode.mdcms</groupId>
+			<artifactId>mdcms-lib</artifactId>
+			<version>0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>jakarta.validation</groupId>
+					<artifactId>jakarta.validation-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.flywaydb</groupId>
+					<artifactId>flyway-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>jakarta.transaction</groupId>
+					<artifactId>jakarta.transaction-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.data</groupId>
+					<artifactId>spring-data-commons</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aspects</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.data</groupId>
+					<artifactId>spring-data-jpa</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>software.amazon.awssdk</groupId>
+					<artifactId>netty-nio-client</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-jdbc</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activemq-spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activemq-broker</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activemq-pool</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activemq-kahadb-store</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activemq-jdbc-store</artifactId>
+				</exclusion>
+				<!--exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activemq-</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activemq-</artifactId>
+				</exclusion-->
+				<exclusion>
+					<groupId>commons-dbutils</groupId>
+					<artifactId>commons-dbutils</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>4.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency><!-- dependencyManagement -->
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.10.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<extensions>
+		</extensions>
+		<pluginManagement>
+			<plugins>
+
+				<!-- Static analysis -->
+				<!-- plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                     <configuration>
+                        <skip>true</skip>
+                     </configuration>
+                </plugin -->
+
+				<!-- Copy individual files -->
+				<plugin><!-- pluginManagement -->
+					<groupId>com.coderplus.maven.plugins</groupId>
+					<artifactId>copy-rename-maven-plugin</artifactId>
+					<!--version>${copy-rename-maven-plugin.version}</version-->
+				</plugin>
+
+				<!-- Zip expander for content -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>truezip-maven-plugin</artifactId>
+					<!--version>${truezip-maven-plugin.version}</version-->
+				</plugin>
+
+				<!-- Dependency management -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<!--version>${maven-dependency-plugin.version}</version-->
+					<executions>
+						<execution>
+							<id>analyze</id>
+							<goals>
+								<goal>analyze-only</goal>
+							</goals>
+							<configuration>
+								<ignoredUnusedDeclaredDependencies>
+									<ignoredUnusedDeclaredDependency>*</ignoredUnusedDeclaredDependency>
+								</ignoredUnusedDeclaredDependencies>
+								<failOnWarning>true</failOnWarning>
+								<ignoreNonCompile>false</ignoreNonCompile>
+							</configuration>
+						</execution>
+						<execution>
+							<id>analyze-dep-mgt</id>
+							<goals>
+								<goal>analyze-dep-mgt</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>tree</id>
+							<goals>
+								<goal>tree</goal>
+							</goals>
+							<configuration>
+								<scope>compile</scope>
+							</configuration>
+						</execution>
+						<execution>
+							<id>resolve</id>
+							<goals>
+								<goal>resolve</goal>
+							</goals>
+							<configuration>
+								<includeClassifiers>sources,javadoc</includeClassifiers>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!-- Java compiler version and options -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<!--version>3.10.1</version-->
+					<configuration>
+						<fork>true</fork>
+						<compilerVersion>${java.version}</compilerVersion>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<showDeprecation>true</showDeprecation>
+						<showWarnings>true</showWarnings>
+						<compilerArgument>-Xlint:unchecked,fallthrough,finally</compilerArgument>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+
+				<!-- Maven Enforcer Plugin -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<!--version>${maven-enforcer-plugin.version}</version-->
+					<executions>
+						<execution>
+							<id>enforce-maven</id>
+							<goals>
+								<goal>enforce</goal>
+							</goals>
+							<configuration>
+								<rules>
+									<requirePluginVersions>
+										<message>Define plugin versions.</message>
+										<banLatest>true</banLatest>
+										<banRelease>true</banRelease>
+										<banSnapshots>true</banSnapshots>
+										<phases>clean,deploy,site</phases>
+									</requirePluginVersions>
+									<requireMavenVersion>
+										<version>${maven.version}</version>
+									</requireMavenVersion>
+									<requireJavaVersion>
+										<version>${java.version}</version>
+									</requireJavaVersion>
+								</rules>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!-- Java release version and options -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<!--version>2.5.3</version-->
+				</plugin>
+
+				<!-- XML File validation -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>xml-maven-plugin</artifactId>
+					<!--version>1.0.2</version-->
+					<executions>
+						<execution>
+							<goals>
+								<goal>validate</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!--  independent goals to assist with the Maven build lifecycle -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<!--version>3.3.0</version-->
+					<executions>
+						<execution>
+							<id>maven-version</id>
+							<goals>
+								<goal>maven-version</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!-- Misc Maven build plugins -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<!--version>3.2.0</version-->
+				</plugin>
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<!--version>3.0.0</version-->
+				</plugin>
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<!--version>3.1.0</version-->
+				</plugin>
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<!--version>3.12.1</version-->
+				</plugin>
+
+				<!-- WAR builder -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<!--version>3.3.2</version-->
+					<configuration>
+						<archive>
+							<addMavenDescriptor>true</addMavenDescriptor>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Maven-Version>${project.version}</Maven-Version>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+
+				<!-- JAR builder -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<!--version>3.3.0</version-->
+					<configuration>
+						<archive>
+							<addMavenDescriptor>true</addMavenDescriptor>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Maven-Version>${project.version}</Maven-Version>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+
+				<!-- Surefire for unit tests -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<!--version>2.22.2</version-->
+					<configuration>
+						<includes>
+							<include>**/unit/*.java</include>
+						</includes>
+						<excludes>
+							<exclude>**/integration/*.java</exclude>
+						</excludes>
+						<argLine>
+							--add-opens java.base/java.lang=ALL-UNNAMED
+							--add-opens java.base/java.io=ALL-UNNAMED
+						</argLine>
+					</configuration>
+					<dependencies>
+						<!--dependency>
+							<groupId>org.ow2.asm</groupId>
+							<artifactId>asm</artifactId>
+							<version>9.1</version>
+						</dependency-->
+					</dependencies>
+				</plugin>
+
+				<!-- Failsafe for integration tests -->
+				<plugin><!-- pluginManagement -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<!--version>2.22.2</version-->
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<includes>
+							<include>**/integration/*.java</include>
+						</includes>
+						<excludes>
+							<exclude>**/unit/*.java</exclude>
+						</excludes>
+						<argLine>
+							--add-opens java.base/java.lang=ALL-UNNAMED
+							--add-opens java.base/java.io=ALL-UNNAMED
+						</argLine>
+					</configuration>
+					<executions>
+						<execution>
+							<id>integration-tests</id>
+							<phase>integration-test</phase>
+							<goals>
+								<goal>integration-test</goal>
+								<goal>verify</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!-- Resource copier -->
+				<plugin><!-- pluginManagement -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <!--version>3.3.0</version-->
+                    <configuration>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+
+				<!-- Docker -->
+				<plugin><!-- pluginManagement -->
+					<groupId>com.spotify</groupId>
+					<artifactId>dockerfile-maven-plugin</artifactId>
+					<version>1.4.13</version>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<!--include>docker-compose.env</include-->
+					<include>**/*</include>
+				</includes>
+				<excludes>
+					<exclude>**/ct-md-latest.zip</exclude>
+					<exclude>**/ct-latest.zip</exclude>
+					<exclude>**/javancss-fake-report.xml</exclude>
+				</excludes>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!-- Delete expanded assets from ./src/main/webapp/assets (these are used by the with-assets profile). -->
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>clean-assets</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>src/main/webapp/assets</directory>
+								</fileset>
+							</filesets>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!--plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+			</plugin-->
+			<!-- mvn clean install dockerfile:push   -->
+			<!-- docker images -a | head -1 ; docker images -a | grep 'gb-web' -->
+			<!-- TODO: Replace with SpringBoot image generator -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+							<goal>tag</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>${project.name}</repository><!-- local ${project.groupId} ${project.name} -->
+					<tag>${project.version}</tag><!-- latest ${project.version} -->
+					<buildArgs>
+						<WAR_FILE>${project.build.finalName}.war</WAR_FILE>
+					</buildArgs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>xml-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<validationSets>
+						<validationSet>
+							<!-- Don't attempt to resolve XML entities and validate against them -->
+							<validating>false</validating>
+							<dir>src/main/resources</dir>
+							<excludes>
+								<exclude>**/*.properties</exclude>
+								<exclude>**/*.ftl</exclude>
+								<exclude>**/*.txt</exclude>
+								<exclude>**/*.sh</exclude>
+								<exclude>**/*.sql</exclude>
+								<exclude>**/docker-compose-mysql/**</exclude>
+								<exclude>**/*.yml</exclude>
+								<exclude>**/*.env</exclude>
+								<exclude>**/ct/**</exclude>
+								<exclude>**/*.der</exclude>
+								<exclude>**/*.exe</exclude>
+								<exclude>**/*.gif</exclude>
+								<exclude>**/*.gpg</exclude>
+								<exclude>**/*.jpg</exclude>
+								<exclude>**/*.md</exclude>
+								<exclude>**/*.pem</exclude>
+								<exclude>**/*.png</exclude>
+								<exclude>**/*.pub</exclude>
+								<exclude>**/*.zip</exclude>
+							</excludes>
+						</validationSet>
+					</validationSets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<!--version>2.5.3</version-->
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<!--version>2.8.2</version-->
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<!--version>${maven-dependency-plugin.version}</version-->
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>analyze-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<!-- Top see images in the web app run (after fixing "- -"):
+     $ ./mvnw - -settings settings.xml clean spring-boot:run - -activate-profiles with-assets
+	-->
+	<profiles>
+		<profile>
+			<id>with-assets</id>
+			<dependencies>
+				<!--dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot</artifactId>
+					<scope>test</scope>
+				</dependency-->
+				<!--dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-autoconfigure</artifactId>
+					<scope>test</scope>
+				</dependency-->
+			</dependencies>
+			<build>
+				<plugins>
+					<!-- Copy expanded assets from local dependency to ./src/main/webapp/assets to serve images from tomcat -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<!--version>3.3.0</version-->
+						<executions>
+							<execution>
+								<id>copy-content-assets</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<!-- ${project.build.directory}/.. -->
+									<outputDirectory>${project.build.sourceDirectory}/../webapp/assets</outputDirectory>
+									<overwrite>true</overwrite>
+									<resources>
+										<resource>
+											<directory>src/main/resources/content/assets</directory>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<!--plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<configuration>
+							<webResources>
+								<resource>
+									<directory>src/test/webapp</directory>
+									<includes>
+										<include>**/context.xml</include>
+									</includes>
+									<!- -excludes>
+										<exclude>main/webapp/META-INF/context.xml</exclude>
+									</excludes- ->
+								</resource>
+							</webResources>
+						</configuration>
+					</plugin-->
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

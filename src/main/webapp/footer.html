@@ -1,0 +1,75 @@
+<!-- ************************************ Footer:Start *************************************** -->
+<div class="footerContainer">
+   <div class="footer">
+      <div class="col1">
+         <div class="g-plusone" data-annotation="inline"></div>
+         <a href="https://plus.google.com/104173413808551377362?rel=author">Google</a>
+      </div>
+      <div class="col2">
+         <a href="https://twitter.com/share" class="twitter-share-button" data-via="DIYAccounting" data-size="large">Tweet</a>
+      </div>
+      <div class="col3">
+         <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.diyaccounting.co.uk%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=dark&amp;font&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
+         <h3>Products</h3>
+         <script id="footerProductLinksJst" type="x-handlebars-template">
+            <ul>
+              {{#each products}}
+                  <li><a href="product.html?product={{this.name}}">{{this.shortTitle}}</a></li>
+               {{/each}}
+            </ul>
+         </script>
+         <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+      <div class="copyright" id="footerCopyrightJst">Copyright &#169; 2009-2023 {{{site.organisation}}}</div>
+      <div class="byLabel">Hand Crafted by <a href="http://www.labelmedia.co.uk/">Label Media</a></div>
+      <div class="clear"></div>
+   </div>
+</div>
+
+<!-- Twitter feed JS -->
+<script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<!-- Twitter share JS -->
+<script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<!-- Google +1 -->
+<script type="text/javascript">
+   (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+   })();
+</script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+   ga('create', 'UA-1035014-1', 'diyaccounting.co.uk');
+   ga('send', 'pageview');
+</script>
+
+<!-- Google Code for Remarketing Tag -->
+<!--------------------------------------------------
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+   /* <![CDATA[ */
+   var google_conversion_id = 1065724931;
+   var google_custom_params = window.google_tag_params;
+   var google_remarketing_only = true;
+   /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+   <div style="display:inline;">
+      <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1065724931/?value=0&amp;guid=ON&amp;script=0"/>
+   </div>
+</noscript>
+
+<!-- ************************************ Footer:End *************************************** -->

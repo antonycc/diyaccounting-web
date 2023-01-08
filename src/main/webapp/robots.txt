@@ -1,0 +1,6 @@
+# Name: robots.txt
+# Purpose: Allow all robots, there is no dynamic content (that shoudn't be cached) 
+#    and we assume malignant robots wouldn't do as they were told.  
+#
+User-agent: *
+Sitemap: https://www.diyaccounting.co.uk/sitemap.xml

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" itemscope="" itemtype="http://schema.org/Organization">
+<head>
+   <title>Loading PayPal Screens</title>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta http-equiv="Content-Language" content="en-gb" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="robots" content="noindex" />
+   <meta name="AdsBot-Google" content="noindex" />
+   <meta property="og:image" content="styles/label/logo.png" />
+   <meta property="og:url" content="https://www.diyaccounting.co.uk/" />
+   <meta property="og:site_name" content="DIY Accounting" />
+   <meta property="og:type" content="website" />
+   <meta property="fb:admins" content="DIY.Accounting.Software" />
+   <meta itemprop="image" content="styles/label/logo.png" />
+   <meta name="copyright" content="DIY Accounting Limited" />
+   <meta name="author" content="DIY Accounting Limited" />
+   <link rel="author" href="https://plus.google.com/104173413808551377362" />
+   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+   <link rel="canonical" href="https://www.diyaccounting.co.uk/donatepaypal.html" />
+   <meta property="og:title" itemprop="name" content="DonatePage"/>
+
+   <!-- Populated using template -->
+   <meta name="description" itemprop="description"  content="noindex" />
+   <meta name="keywords" content="noindex" />
+
+   <!-- CSS -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link href="styles/label/style.css" rel="stylesheet" type="text/css" title="Default Theme" media="screen" />
+
+   <!-- JS Libraries -->
+   <script src="js/prototype.js" type="text/javascript"></script>
+   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+   <!-- Obtain and distribute dynamic content -->
+   <script src="js/utils.js"></script>
+
+   <!-- Google Analytics tracking code (asynchronous) -->
+   <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1035014-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+   </script>
+
+   <!-- Download script -->
+   <script type="text/javascript">
+      function downloadPackage() {
+         const urlParams = new URLSearchParams(window.location.search);
+         let params = 'product=' + urlParams.get('product') + '&period=' + urlParams.get('period');
+         window.location.href = 'download.html?' + params;
+      }
+   </script>
+</head>
+
+<body>
+<div id="header">
+   <!-- Populated with load("header.html") -->
+</div>
+<div class="pageContainer">
+   <!-- See: https://developer.paypal.com/sdk/donate/ -->
+   <div id="donate-button-container">
+      <div id="donate-button"></div>
+      <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+      <script>
+         //env:'production',
+         //hosted_button_id: 'XTEQ73HM52QQW',   // Live donate button
+         //business: business: '37EV7JXJ5UY6A', // Sandbox donate button
+         const urlParams = new URLSearchParams(window.location.search);
+         const hostedButtonId = urlParams.get('paypalHostedButtonId');
+         const environment =    urlParams.get('paypalHostedButtonEnvironment');
+         const outgoingUrlParams = 'product=' + urlParams.get('product') + '&period=' + urlParams.get('period');
+         if(urlParams.get('paypalHostedButtonType') == 'business'){
+            PayPal.Donation.Button({
+               env: environment,
+               business: hostedButtonId,
+               image: {
+                  src:'https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif',
+                  alt:'Donate with PayPal button',
+                  title:'PayPal - The safer, easier way to pay online!',
+               },
+               onComplete: function (params) {
+                  window.location.href = 'download.html?' + outgoingUrlParams;
+               },
+            }).render('#donate-button');
+         }else {
+            PayPal.Donation.Button({
+               env: environment,
+               hosted_button_id: hostedButtonId,
+               image: {
+                  src:'https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif',
+                  alt:'Donate with PayPal button',
+                  title:'PayPal - The safer, easier way to pay online!',
+               },
+               onComplete: function (params) {
+                  window.location.href = 'download.html?' + outgoingUrlParams;
+               },
+            }).render('#donate-button');
+         }
+      </script>
+   </div>
+   <br/>
+   <h2>Click "Donate" above or continue to<h2>
+   <a href="#" on onclick="downloadPackage();" class="basket">Download</a>
+</div>
+<div id="footer">
+   <!-- Populated with load("footer.html") -->
+</div>
+</body>
+<script defer>
+   $(this).closest('form').submit()
+</script>
+</html>

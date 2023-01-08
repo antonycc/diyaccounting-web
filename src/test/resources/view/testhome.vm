@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>${title}</title>
+	<link href="styles/plain/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/utils.js"></script>
+</head>
+<body>
+<p>Spring home JSP page</p>
+<h1>${title}</h1>
+<script type="text/javascript">
+	helloWorld("Hello World JS");
+</script>
+${body}
+<p><a href="simple.do">Simple CMS Content page</a></p>
+<p><a href="broken.do">Broken Content page</a></p>
+<p><a href="diyhome.html">DIY Accounting home page</a></p>
+</body>
+</html>
+<!-- home.vm -->

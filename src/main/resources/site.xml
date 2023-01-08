@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <!-- Site information typically embedded in the HTML -->
+   <bean id="site" class="uk.co.diyaccounting.web.model.Site">
+      <property name="vat" value="${site.vat}"/>
+      <property name="vatNumber" value="${site.vatNumber}"/>
+      <property name="language" value="${site.language}"/>
+      <property name="logo" value="${site.logo}"/>
+      <property name="url" value="${site.url}"/>
+      <property name="paypalHostedButtonId" value="${site.paypal.hostedbutton.id}"/>
+      <property name="paypalHostedButtonType" value="${site.paypal.hostedbutton.type}"/>
+      <property name="paypalHostedButtonEnvironment" value="${site.paypal.hostedbutton.environment}"/>
+      <property name="name" value="${site.name}"/>
+      <property name="fb" value="${site.fb}"/>
+      <property name="organisation" value="${site.organisation}"/>
+      <property name="email" value="${site.email}"/>
+   </bean>
+
+</beans>

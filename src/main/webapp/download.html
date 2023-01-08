@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" itemscope="" itemtype="http://schema.org/Organization">
+<head>
+   <title id="pageTitleJst">{{{pages.article.title}}}</title>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta http-equiv="Content-Language" content="en-gb" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="robots" content="noindex" />
+   <meta name="AdsBot-Google" content="noindex" />
+   <meta property="og:image" content="styles/label/logo.png" />
+   <meta property="og:url" content="https://www.diyaccounting.co.uk/" />
+   <meta property="og:site_name" content="DIY Accounting" />
+   <meta property="og:type" content="website" />
+   <meta property="fb:admins" content="DIY.Accounting.Software" />
+   <meta itemprop="image" content="styles/label/logo.png" />
+   <meta name="copyright" content="DIY Accounting Limited" />
+   <meta name="author" content="DIY Accounting Limited" />
+   <link rel="author" href="https://plus.google.com/104173413808551377362" />
+   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+   <link rel="canonical" href="https://www.diyaccounting.co.uk/download.html" />
+   <meta property="og:title" itemprop="name" content="DownloadPage"/>
+   <meta name="description" itemprop="description"  content="noindex" />
+   <meta name="keywords" content="noindex" />
+
+   <!-- CSS -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link href="styles/label/style.css" rel="stylesheet" type="text/css" title="Default Theme" media="screen" />
+
+   <!-- JS Libraries -->
+   <script src="js/prototype.js" type="text/javascript"></script>
+   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+   <!-- Obtain and distribute dynamic content -->
+   <script src="js/utils.js"></script>
+
+   <!-- Google Analytics tracking code (asynchronous) -->
+   <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1035014-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+   </script>
+</head>
+<body>
+<div id="header">
+   <!-- Populated with load("header.html") -->
+</div>
+<div class="pageContainer">
+   <br/>
+   <h1 class="title">Download your DIY Accounting package</h1>
+   <script id="ProductNameJst" type="x-handlebars-template">
+      <br/>
+      {{#if title}}
+         <h2>{{title}}</h2>
+      {{else}}
+         {{#if transaction}}
+            <h2>Transaction Id no longer required</h2>
+            <p>A Transaction Id is no longer required to download this DIY Accounting package.
+         {{/if}}
+         {{#if notfound}}
+               Please make a selection of product and period to <a href="get.html">download your package</a>.</p>
+         {{/if}} <!-- if notfound -->
+      {{/if}} <!-- if title -->
+      <br/>
+   </script>
+   <div class="articlesList">
+
+      <script id="downloadJst" type="x-handlebars-template">
+         {{#if token}}
+            <div class="article">
+               {{#if product}}
+                  Please download your package of {{product}} for period {{period}} below. <br/>
+                  <br/>
+               {{/if}} <!-- if product -->
+               To use DIY Accounting you shall require a spreadsheet program such as Microsoft Excel or OpenOffice.<br/>
+               <br/>
+               OpenOffice is a free Excel alternative available from <a href="http://www.openoffice.org/" target="new">here</a>.<br/>
+               <br/>
+               When downloading the files please select the version which is the closest match to your computer.
+               <br/>
+               <br/>
+            </div>
+            <div class="article">
+               <h2>Zip file for manual installation - Windows, Mac OS or Linux</h2>
+               <br/>
+               <ol>
+                  <li>Create a new folder for your DIY Accounting files.<br/></li>
+                  <li>Right click to select one of links below:</li>
+                  <ul>
+                     {{#if zipExcel2003Url}}
+                        &nbsp;&nbsp;&nbsp;<li><a href="{{zipExcel2003Url}}">Download the package for Excel '97 to 2003 (also compatible with Excel 2007 and OpenOffice)</a></li>
+                     {{/if}}
+                     {{#if zipExcel2007Url}}
+                        &nbsp;&nbsp;&nbsp;<li><a href="{{zipExcel2007Url}}">Download the package for Excel 2010 or later (also compatible with Excel 2007)</a></li>
+                     {{/if}}
+                     {{#if zipOpenOfficeUrl}}
+                        &nbsp;&nbsp;&nbsp;<li><a href="{{zipOpenOfficeUrl}}">Download the package for OpenOffice 3.3 (free Excel alternative, requires OpenOffice 3.3)</a></li>
+                     {{/if}}
+                  </ul>
+                  <br/>
+                  <li>Click &quot;Save target as...&quot;.<br/></li>
+                  <li>Select the folder for your DIY Accounting files.<br/></li>
+                  <li>Click &quot;Save&quot;.<br/></li>
+                  <li>Unzip the files to a new folder.<br/></li>
+                  <br/>
+                  Most operating systems include a tool to unzip files usually by right clicking on
+                  the zip file when saved on your computer and clicking 'extract...' or similar.<br/>
+                  <br/>
+               </ol>
+            </div>
+         {{else}}
+            Please make a selection of product and period to <a href="get.html">download your package</a>.</p>
+         {{/if}} <!-- if token -->
+      </script>
+      <div class="article">
+         If for any reason you have a problem downloading the files, you can find the source material
+         <a href="https://github.com/antonycc/diy-accounting">on GitHub</a><br/>
+         <br/>
+      </div>
+      <div class="article">
+         <b>Mozilla Public License 2.0</b><br/>
+         Permissions of this weak copyleft license are conditioned on making available source code of licensed files
+         and modifications of those files under the same license (or in certain cases, one of the GNU licenses).
+         Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
+         However, a larger work using the licensed work may be distributed under different terms and without source code
+         for files added in the larger work.<br/>
+         <br/>
+      </div>
+   </div> <!-- class="articlesList" -->
+</div>
+<div id="footer">
+   <!-- Populated with load("footer.html") -->
+</div>
+<script type="application/javascript">
+   $(function() {
+      $("#header").load("header.html");
+      $("#footer").load("footer.html");
+      const urlParams = new URLSearchParams(window.location.search);
+      let apiUrl = 'content/page';
+      if(urlParams.has('product') && urlParams.has('period') && !urlParams.has('notfound')){
+         const productDashedName = urlParams.get('product').replace('Accounts', '').replace('Product', '').replaceAll(' ', '-')
+         const periodDashedName = urlParams.get('period').replace(' ', '-');
+         apiUrl = 'content/product-for-period/' + productDashedName + '/' + periodDashedName;
+      }
+      $.getJSON(apiUrl, function() {})
+            .done(function(context) {
+               if(urlParams.has('notfound')){
+                  context.notfound = true;
+               }
+               if(urlParams.has('product')){
+                  context.product = urlParams.get('product');
+               }
+               if(urlParams.has('period')){
+                  context.period = urlParams.get('period');
+               }
+               gbWebApp.applyTemplateForElementsThatEndWith('Jst', context);
+            })
+            .fail(function() {
+               if(urlParams.has('product')) {
+                  window.location.replace('download.html?product=' + urlParams.get('product') + '&period=' + urlParams.get('period') + '&notfound=true');
+               }
+            });
+   });
+</script>
+</body>
+</html>

@@ -1,0 +1,1126 @@
+@CHARSET "UTF-8";
+
+h1,h2,h3,h4,h5,h6,pre,code { font-size:1em; }
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,html,p,blockquote,fieldset,input,object,body { margin:0; padding:0; }
+a img,:link img,:visited img { border:none; outline: 0; }
+
+body {
+	background: url("bg.png");
+	font-family: helvetica, arial, sans-serif;
+	font-size: 12px;
+	color: #292a2a;
+	position: relative;
+	padding-top: 159px;
+}
+
+.clear {
+	clear: both;
+}
+
+.pageContainer {
+	width: 980px;
+	margin: 0 auto;
+	z-index: 1;
+}
+
+/* ------------------------------- Text Default Styles ---------------------------------- */
+h1 {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 33px;
+	color: #183e3e;
+	font-weight: bold;
+}
+
+h2 {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 27px;
+	color: #183e3e;
+	font-weight: normal;
+}
+
+p {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 12px;
+	color: #292a2a;
+	line-height: 20px;
+	margin-bottom: 15px;
+}
+
+a {
+	color: #2d9c9c;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.button {
+	color: #ffffff;
+	font-size: 14px;
+    border-radius: 5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    padding: 9px 40px 7px 20px;
+    background-color: #2d9c9c;
+   	background-image: url("btn-arrowRight.png");
+   	background-repeat: no-repeat;
+	background-position: right center;
+	display: block;
+	float: left;
+	margin-top: 10px;
+}
+
+a.button:hover {
+	background-color: #29c0c0;
+	text-decoration: none;
+}
+
+a.buttonLeft {
+	color: #ffffff;
+	font-size: 14px;
+    border-radius: 5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    padding: 9px 20px 7px 35px;
+    background-color: #2d9c9c;
+   	background-image: url("btn-arrowLeft.png");
+   	background-repeat: no-repeat;
+	background-position: left center;
+	display: block;
+	float: left;
+	margin-top: 10px;
+}
+
+a.buttonLeft:hover {
+	background-color: #29c0c0;
+	text-decoration: none;
+}
+
+a.basket {
+	color: #ffffff;
+	font-size: 14px;
+    border-radius: 5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    padding: 9px 40px 7px 22px;
+    background-color: #2d9c9c;
+   	background-image: url("btn-basket.png");
+   	background-repeat: no-repeat;
+	background-position: right center;
+	display: block;
+	float: left;
+	margin-top: 10px;
+}
+
+a.basket:hover {
+	background-color: #29c0c0;
+	text-decoration: none;
+}
+
+/* ------------------------------- Floating Header ---------------------------------- */
+.headerContainer {
+	background: url("bg-header.png");
+	width: 100%;
+	height: 135px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 20px 0px;
+	z-index: 2;
+}
+
+.header {
+	height: 134px;
+	width: 940px;
+	margin: 0 auto;
+	border-bottom: 2px #bcbcbc solid;
+}
+
+.header .logo {
+	background: url("logo.png") no-repeat;
+	width: 237px;
+	height: 93px;
+	float: left;
+	margin-top: 10px;
+}
+
+/* ------------------------------- Top Nav ---------------------------------- */
+.header .nav {
+	float: right;
+	margin-top: 55px;
+}
+
+.header .nav ul {
+	list-style: none;
+}
+
+.header .nav ul li {
+	display: inline;
+	padding-right: 9px;
+	padding-left: 2px;
+	background: url("bg-topNav.png") no-repeat;
+	background-position: right center;
+}
+
+.header .nav ul li.last {
+	background: none;
+}
+
+.header .nav ul li a {
+	color: #292a2a;
+	padding: 5px 8px 3px 8px;
+	font-size: 14px;
+}
+
+.header .nav ul li a:hover {
+	color: #ffffff;
+	background-color: #2d9c9c;
+    border-radius: 5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    text-decoration: none;
+}
+
+
+/* ------------------------------- Header ---------------------------------- */
+
+.strapLine {
+	height: 150px;
+	width: 940px;
+	border-bottom: 1px #bcbcbc solid;
+	margin: 0 auto 30px auto;	
+	background-position: 696px center;
+}
+
+.strapLine .left {
+	width: 695px;
+	float: left;
+	padding-top: 40px;
+}
+
+.strapLine .right {
+	width: 200px;
+	float: right;
+	padding-top: 30px;
+}
+
+.strapLine .right .text {
+	font-size: 14px;
+	line-height: 22px;
+	margin-bottom: 20px;
+}
+
+.strapLine .right a {
+	color: #ffffff;
+	font-size: 14px;
+    border-radius: 5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    padding: 9px 40px 7px 22px;
+    background-color: #2d9c9c;
+   	background-image: url("btn-basket.png");
+   	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.strapLine .right a:hover {
+	background-color: #29c0c0;
+	text-decoration: none;
+}
+
+
+/* ------------------------------- Footer ---------------------------------- */
+.footerContainer {
+	background: url("bg-footer.png");
+	width: 100%;
+	margin-top: 40px;
+	padding-top: 25px;
+	padding-bottom: 30px;
+}
+
+.footer {
+	width: 940px;
+	margin: 0 auto;
+}
+
+.footer h3 {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 18px;
+	color: #ffffff;
+	font-weight: normal;
+	margin-bottom: 25px;
+}
+	
+.footer .col1 {
+	width: 215px;
+	padding-right: 20px;
+	float: left;
+}
+
+.footer .col1 ul {
+	list-style: none;
+}
+
+.footer .col1 ul li {
+	margin-bottom: 10px;
+}
+
+.footer .col1 ul li a {
+	color: #a5a5a5;
+}
+
+.footer .col2 {
+	width: 215px;
+	padding-right: 20px;
+	float: left;
+	color: #ffffff;
+}
+
+.footer .col2 ul {
+	list-style: none;
+}
+
+.footer .col2 ul li {
+	display: none;
+}
+
+.footer .col2 ul li:first-child {
+	margin-bottom: 40px;
+	display: block;
+}
+
+.footer .col2 ul li .tweet {
+	line-height: 22px;
+}
+
+.footer .col2 ul li .tweet div {
+	margin-bottom: 10px;
+}
+
+.footer .col2 ul li .tweetTime {
+	color: #a5a5a5;
+}
+
+.footer .col3 {
+	width: 470px;
+	float: left;
+}
+
+.footer .col3 ul {
+	list-style: none;
+}
+
+.footer .col3 ul li {
+	margin-bottom: 10px;
+	width: 215px;
+	padding-right: 20px;
+	float: left;
+}
+
+.footer .col3 ul li a {
+	color: #a5a5a5;
+}
+
+.footer .copyright {
+	color: #656b6b;
+	padding-top: 30px;
+	float: left;
+}
+
+.footer .byLabel {
+	color: #656b6b;
+	text-align: right;
+	padding-top: 30px;
+	float: right;
+}
+
+
+/* ------------------------------- Homepage ---------------------------------- */
+.homeContainer {
+	width: 940px;
+	margin: 0 auto;
+	margin-bottom: 40px;
+}
+
+.homeContainer .about {
+	width: 455px;
+	float: left;
+}
+
+.homeContainer .twitter {
+	width: 470px;
+	float: right;
+}
+
+.homeContainer .twitter a.button {
+	margin-left: 30px;
+}
+
+.homeContainer .twitter ul {
+	list-style: none;
+}
+
+.homeContainer .twitter ul li {
+	width: 210px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	float: left;
+}
+
+.homeContainer .twitter ul li .tweet {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 12px;
+	color: #292a2a;
+	line-height: 20px;
+}
+
+
+/* ---------------------------------- A shorter featured container for 1 column templates ----------------------- */
+
+.featuredContainer {
+	width: 960px;
+	background: #ffffff;
+	margin: 0 auto;
+	padding: 30px 10px 30px 10px;
+}
+
+.featuredContainer .featured {
+	width: 220px;
+	margin: 0px 10px;
+	padding-top: 20px;
+	float: left;
+	position: relative;
+	background: url("bg-featured.png") repeat-x;
+}
+
+.featuredContainer .featured:hover {
+	background: url("bg-featuredHover.png") repeat-x;
+}
+
+.featuredContainer .featured .productType {
+	margin-bottom: 10px;
+	color: #9a9a9a;
+}
+
+.featuredContainer .featured .productInfo {
+	margin-bottom: 20px;
+	font-size: 15px;
+}
+
+.featuredContainer .featured .price {
+	margin-bottom: 40px;
+	color: #9a9a9a;
+}
+
+.featuredContainer .featured .price span {
+	font-size: 16px;
+	color: #2d9c9c;
+	font-weight: bold;
+}
+
+.featuredContainer .featured .buttons {
+	position: absolute;
+	bottom: 0;
+	left:  0;	
+}
+
+.featuredContainer .featured .buttons .button {
+	font-size: 12px;
+	padding: 6px 37px 4px 15px;
+}
+
+.featuredContainer .featured .buttons .basketButton {
+	color: #ffffff;
+	font-size: 12px;
+    border-radius: 5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    padding: 6px 37px 4px 15px;
+    background-color: #2d9c9c;
+   	background-image: url("btn-basket.png");
+   	background-repeat: no-repeat;
+	background-position: right center;
+	margin-left: 8px;
+	float: left;
+	margin-top: 10px;
+}
+
+.featuredContainer .featured .buttons .basketButton:hover {
+	background-color: #29c0c0;
+	text-decoration: none;
+}
+
+/* ---------------------------------- A shorter featured container for 2 column templates ----------------------- */
+.featuredContainerShort {
+    width: 720px;
+    background: #ffffff;
+    margin: 0 auto;
+    padding: 30px 10px 30px 10px;
+}
+
+.featuredContainerShort .featured {
+    width: 220px;
+    margin: 0px 10px;
+    padding-top: 20px;
+    float: left;
+    position: relative;
+    background: url("bg-featured.png") repeat-x;
+}
+
+.featuredContainerShort .featured:hover {
+    background: url("bg-featuredHover.png") repeat-x;
+}
+
+.featuredContainerShort .featured .productType {
+    margin-bottom: 10px;
+    color: #9a9a9a;
+}
+
+.featuredContainerShort .featured .productInfo {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.featuredContainerShort .featured .price {
+    margin-bottom: 40px;
+    color: #9a9a9a;
+}
+
+.featuredContainerShort .featured .price span {
+    font-size: 16px;
+    color: #2d9c9c;
+    font-weight: bold;
+}
+
+.featuredContainerShort .featured .buttons {
+    position: absolute;
+    bottom: 0;
+    left:  0;
+}
+
+.featuredContainerShort .featured .buttons .button {
+    font-size: 12px;
+    padding: 6px 37px 4px 15px;
+}
+
+.featuredContainerShort .featured .buttons .basketButton {
+    color: #ffffff;
+    font-size: 12px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    padding: 6px 37px 4px 15px;
+    background-color: #2d9c9c;
+    background-image: url("btn-basket.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    margin-left: 8px;
+    float: left;
+    margin-top: 10px;
+}
+
+.featuredContainerShort .featured .buttons .basketButton:hover {
+    background-color: #29c0c0;
+    text-decoration: none;
+}
+
+/* ------------------------------- Listing, used on homepage and products page ---------------------------------- */
+
+.listingContainer {
+	width: 940px;
+	margin: 0 auto;
+	padding: 30px 20px 0px 20px;
+}
+
+/* ------------------- Two column container either used for a nav+content or content with titles------------------ */
+
+.twoColumnContainer .left {
+	width: 220px;
+	border-top: 1px #bcbcbc solid;
+	padding-top: 25px;
+	margin-right: 20px;
+	float: left;
+}
+
+.twoColumnContainer .right {
+	width: 700px;
+	float: left;
+}
+
+.twoColumnContainer .right .productInfo {
+	border-top: 1px #bcbcbc solid;
+	padding-top: 25px;
+	margin-bottom: 25px;
+}
+
+.twoColumnContainer .right .productInfo h2 {
+	color: #2d9c9c;
+	margin-bottom: 25px;
+}
+
+.twoColumnContainer .right .productInfo h3 {
+	font-size: 18px;
+	margin-bottom: 25px;
+}
+
+.twoColumnContainer .right .productInfo .image {
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.twoColumnContainer .right .productInfo .buttons {
+   font-size: 18px;
+   margin-bottom: 25px;
+   bottom: 0;
+   left:  0;   
+}
+
+.twoColumnContainer .right .productInfo .button {
+   font-size: 18px;
+   margin-bottom: 25px;
+	font-size: 12px;
+   padding: 6px 37px 4px 15px;
+}
+
+.twoColumnContainer .right .productInfo .basketButton {
+   color: #ffffff;
+   font-size: 12px;
+    border-radius: 5px;
+   -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    padding: 6px 37px 4px 15px;
+    background-color: #2d9c9c;
+      background-image: url("btn-basket.png");
+      background-repeat: no-repeat;
+   background-position: right center;
+   margin-left: 8px;
+   float: left;
+   margin-top: 10px;
+}
+
+
+/* ------------------------------- Side Nav ---------------------------------- */
+.sideNav ul{
+	list-style: none;
+}
+
+.sideNav ul li {
+	margin-bottom: 20px;
+}
+
+.sideNav ul li a {
+	font-size: 14px;
+}
+
+
+/* ------------------------------- Products Page ---------------------------------- */
+.contentTop {
+	width: 940px;
+	margin: 0 auto;
+	padding: 30px 20px 0px 20px;
+}
+
+.contentTop .twoColumnContainer .left {
+	border-top: 0;
+	padding-top: 0px;
+}
+
+.contentTop .twoColumnContainer .right h1 {
+	margin-bottom: 30px;
+}
+
+.contentTop .twoColumnContainer .right .productInfo {
+	margin-bottom: 0;
+}
+
+.contentTop .twoColumnContainer .right .productInfo .left {
+	width: 460px;
+}
+
+.contentTop .twoColumnContainer .right .productInfo .right {
+	width: 220px;
+}
+
+.contentTop .twoColumnContainer .right .productInfo .right h3 {
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+
+.contentTop .twoColumnContainer .right .productInfo .right .priceInfo {
+	border-top: 1px #bcbcbc solid;
+	border-bottom: 1px #bcbcbc solid;
+	padding: 20px 0px;
+	margin-bottom: 15px;
+}
+
+.contentTop .twoColumnContainer .right .productInfo .right .priceInfo .selectText {
+	color: #9a9a9a;
+	margin-bottom: 7px;
+}
+
+.contentTop .twoColumnContainer .right .productInfo .right .priceInfo select {
+	width: 165px;
+	margin-bottom: 20px;
+	color: #9a9a9a;
+}
+
+.contentTop .twoColumnContainer .right .productInfo .right .priceInfo .price {
+	color: #9a9a9a;
+	margin-bottom: 10px;
+}
+
+.contentTop .twoColumnContainer .right .productInfo .right .priceInfo .price span {
+	font-size: 16px;
+	color: #2d9c9c;
+	font-weight: bold;
+}
+
+.contentTop .twoColumnContainer .right .productInfo .right .priceInfo button {
+	color: #ffffff;
+	font-size: 14px;
+    border-radius: 5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    padding: 5px 40px 7px 18px;
+    background-color: #2d9c9c;
+   	background-image: url("btn-basket.png");
+   	background-repeat: no-repeat;
+	background-position: right center;
+	border: 0;
+}
+
+.contentTop .twoColumnContainer .right .productInfo .right .priceInfo button:hover {
+	background-color: #29c0c0;
+}
+
+.twoColumnContainer .right .featuresList {
+	border-top: 1px #bcbcbc solid;
+}
+
+.twoColumnContainer .right .featuresList .feature {
+	width: 210px;
+	float: left;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.twoColumnContainer .right .featuresList .feature .featureName {
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 10px;
+	color: #2d9c9c;
+}
+
+.twoColumnContainer .right ul {
+	list-style-position: inside;
+}
+
+.twoColumnContainer .right ul li {
+	margin-bottom: 20px;
+}
+
+
+/* ------------------------------- Bookkeepers Network Page ---------------------------------- */
+.twoColumnContainer .right .threeColumnGridList {
+	border-top: 1px #bcbcbc solid;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+.twoColumnContainer .right .threeColumnGridList .button {
+   margin-top: 0px;
+}
+
+.twoColumnContainer .right .threeColumnGridList .whiteBG {
+	background: #ffffff;
+}
+
+
+/* ------------------------------- About Page ---------------------------------- */
+.twoColumnContainer .right .aboutContent {
+	border-top: 1px #bcbcbc solid;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+.twoColumnContainer .right .aboutContent .image {
+	float: left;
+}
+
+.twoColumnContainer .right .aboutContent .image img {
+	max-width: 330px;
+	height: auto;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+
+/* ------------------------------- Articles Page ---------------------------------- */
+.twoColumnContainer .right .articlesList {
+	border-top: 1px #bcbcbc solid;
+	padding-top: 20px;
+}
+
+.twoColumnContainer .right .articlesList .article {
+	margin-bottom: 30px;
+}
+
+.twoColumnContainer .right .articlesList .article h2 {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.twoColumnContainer .right .articlesList .image {
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+
+/* ------------------------------- Support Page ---------------------------------- */
+.supportIntro {
+	padding-bottom: 20px;
+}
+
+.supportTop {
+	width: 940px;
+	margin: 0 auto;
+	padding: 30px 20px 0px 20px;
+}
+
+.supportTop h1 {
+	margin-bottom: 20px;
+}
+
+.supportTop .left {
+	width: 460px;
+	float: left;
+}
+
+.supportTop .right {
+	width: 460px;
+	float: right;
+}
+
+.supportTop .right .image {
+   float: left;
+}
+
+
+.supportBottom {
+	width: 940px;
+	margin: 0 auto;
+	padding: 30px 20px 0px 20px;
+}
+
+/* ---------- A page that lists articles in a single column without a let nav ------ */
+.articlesNoNav {
+	width: 940px;
+	margin: 0 auto;
+	padding: 30px 20px 0px 20px;
+}
+
+.articlesNoNav .articlesList {
+	border-top: 1px #bcbcbc solid;
+	padding-top: 30px;
+}
+
+.articlesNoNav .articlesList .article {
+	padding-bottom: 15px;
+}
+
+.articlesNoNav .articlesList .article h2 {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+
+
+/* ------------------------------- Contact Page ---------------------------------- */
+.contactTop {
+	width: 940px;
+	margin: 0 auto;
+	padding: 30px 20px 0px 20px;
+}
+
+.contactTop .twoColumnContainer .left {
+	width: 700px;
+	float: left;
+	border: 0;
+	padding-top: 0px;
+}
+
+.contactTop .twoColumnContainer .left h1 {
+	margin-bottom: 15px;
+}
+
+.contactTop .twoColumnContainer .left h2 {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.contactTop .twoColumnContainer .left .form {
+	border-top: 1px #bcbcbc solid;
+	margin-top: 20px;
+	padding-top: 20px;
+}
+
+.contactTop .twoColumnContainer .left .form h3 {
+	font-size: 16px;
+	font-weight: normal;
+	margin-bottom: 20px;	
+}
+
+.contactTop .twoColumnContainer .left .form ul {
+	list-style: none;
+}
+
+.contactTop .twoColumnContainer .left .form ul li {
+	padding-bottom: 20px;
+	display: block;
+}
+
+.contactTop .twoColumnContainer .left .form label {
+	font-size: 14px;
+	line-height: 22px;
+	width: 150px;
+	text-align: right;
+	margin-right: 25px;
+	float: left;
+}
+
+.contactTop .twoColumnContainer .left .form input {
+	border: 1px #292a2a solid;
+	width: 255px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+.contactTop .twoColumnContainer .left .form textarea {
+	border: 1px #292a2a solid;
+	width: 255px;
+	padding: 5px;
+	font-size: 14px;
+	height: 100px;
+}
+
+.contactTop .twoColumnContainer .left .form input:focus, .contactTop .twoColumnContainer .left .form textarea:focus {
+	border: 1px #2d9c9c solid;
+}
+
+.contactTop .twoColumnContainer .left .form button {
+	color: #ffffff;
+	font-size: 14px;
+    border-radius: 5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    padding: 5px 40px 7px 18px;
+    background-color: #2d9c9c;
+   	background-image: url("btn-basket.png");
+   	background-repeat: no-repeat;
+	background-position: right center;
+	border: 0;
+}
+
+.contactTop .twoColumnContainer .left .form button:hover {
+	background-color: #29c0c0;
+}
+
+.contactTop .twoColumnContainer .right {
+	width: 220px;
+	float: left;
+}
+
+.contactTop .twoColumnContainer .right .contact {
+	margin-bottom: 30px;
+}
+
+.contactTop .twoColumnContainer .right .contact h3 {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.contactTop .twoColumnContainer .right .twitter h3 {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.contactTop .twoColumnContainer .right .twitter ul {
+	list-style: none;
+}
+
+.contactTop .twoColumnContainer .right .twitter ul li .tweet {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 12px;
+	color: #292a2a;
+	line-height: 20px;
+}
+
+/* ----------------------------- Buy Page -----------------------------------------*/
+
+.trailinginstruction p {
+   font-size: 24px;
+}
+
+.selectionBanner {
+	height: 150px;
+	width: 940px;
+	border-bottom: 1px #bcbcbc solid;
+	margin: 0 auto 30px auto;	
+	background-position: 696px center;
+}
+
+.selectionBanner .instruction {
+   width: 895px;
+   float: left;
+   padding-top: 20px;
+}
+
+.selectionBanner .instruction p {
+   font-size: 24px;
+}
+
+.selectionBanner .selection {
+	width: 695px;
+	float: left;
+	font-size: 24px;
+	padding-top: 20px;
+}
+
+.selectionBanner .selection p {
+    font-size: 24px;
+}
+
+.selectionBanner .checkout {
+	width: 200px;
+	float: right;
+	padding-top: 20px;
+}
+
+.selectionBanner .checkout .text {
+	font-size: 14px;
+	line-height: 22px;
+	margin-bottom: 20px;
+}
+
+
+.selectionContainer {
+   width: 960px;
+   background: #ffffff;
+   margin: 0 auto;
+   padding: 30px 10px 30px 10px;
+}
+
+.selectionContainer .criterion {
+   width: 300px;
+   margin: 0px 10px;
+   float: left;
+   position: relative;
+}
+
+/* ------------------------------- Side Nav ---------------------------------- */
+.selectionContainer .criterion ul{
+   list-style: none;
+}
+
+.selectionContainer .criterion ul li {
+   margin-bottom: 20px;
+}
+
+.selectionContainer .criterion ul li a {
+   font-size: 14px;
+}
+
+.selectionContainer .criterion .button {
+   width: 240px;
+   font-size: 12px;
+   padding: 6px 37px 4px 15px;
+}
+
+.selectionContainer .criterion .button:hover {
+   background: url("bg-featuredHover.png") repeat-x;
+   background-color: #29c0c0;
+   text-decoration: none;
+}
+
+.selectionContainer .featured .buttons {
+   position: absolute;
+   bottom: 0;
+   left:  0;   
+}
+
+@media only screen and (max-width: 500px) {
+	* { max-width: 100vw; }
+	body, .header, .pageContainer, .homeContainer, .headerContainer {
+		width: 100% !important;
+		box-sizing: border-box;
+	}
+
+	.headerContainer { position: absolute; }
+	.header > .nav { 
+		margin-top: 50px;
+		display:flex;
+		flex-wrap: wrap;
+		width: 80% !important;
+		float: left;
+	}
+	#header { width: 90% !important; height: 135px; }
+	.header .nav ul li { font-size: 2em; padding: 0px 15px 0px 15px;}
+
+	.strapLine { height: auto; width: 100% !important; }
+
+	.strapLine > .left { padding-top: 0px; float:none; }
+	.strapLine > .right { padding: 30px; float: none; margin: auto; }
+
+	.homeContainer > .about { width: 95% !important; float:none; margin: auto; }
+	.homeContainer > .about > p { font-size: 1.3em !important; }
+
+	.homeContainer > .twitter { display: none; }
+
+	.featuredContainer { width: 90%; padding: 10px 10px 15px 10px; }
+
+	.listingContainer, .contentTop { width: 95%; padding: 30px 0px; }
+
+	.listingContainer > .twoColumnContainer > * { width: 100%; }
+
+	.productInfo > p { font-size: 1.3em !important;}
+	.productInfo > img { width: 100%;}
+	.contentTop .twoColumnContainer .right .productInfo { width: 95% !important; }
+
+	.footer {  display: table; }
+	.footer > .col1 { float: none; display: table-header-group;}
+	.footer > .col2 { float: none; display: table-footer-group; }
+	.footer > * > ul { width: 50%;
+		margin: auto;}
+
+	.contentTop, .supportTop, .articlesNoNav, .contactTop { padding: 0px 10px; }
+	.supportIntro > p  { font-size: 1.3em !important; }
+	.supportTop > .left, .articlesList > .article, .aboutContent, .contactTop .twoColumnContainer .left .form { width: 95% !important;}
+	.supportTop > .left > p, .articlesList > .article > p, .aboutContentBody > p, .contactTop .twoColumnContainer .left .form > p { font-size: 1.3em !important; }
+
+	.twoColumnContainer > .right > .featuresList > .feature { width: 100%; float: none;}
+	.featuresList > .feature > * { font-size: 1.3em !important;}
+	.contentTop .twoColumnContainer .left { width: 50%; margin: auto; float: none; }
+
+
+  }

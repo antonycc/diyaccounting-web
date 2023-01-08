@@ -1,0 +1,38 @@
+name: Publish package to GitHub Packages
+on:
+  push:
+    branches:
+      - main
+  #release:
+  #  types: [created]
+    workflow_dispatch:
+jobs:
+  publish:
+    runs-on: ubuntu-latest 
+    permissions: 
+      contents: read
+      packages: write 
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      # See: https://github.com/marketplace/actions/maven-settings-action
+      - name: Generate Maven settings for GitHub Packages
+        uses: s4u/maven-settings-action@v2.8.0
+        with:
+          # ${GITHUB_ACTOR}
+          servers: '[{"id": "github", "username": "unused-fake-name", "password": "${GITHUB_TOKEN}"}]'
+          githubServer: false
+
+      - run: echo "~/.m2/settings.xml:" ; cat ~/.m2/settings.xml ;
+
+      - name: Publish package
+        run: mvn --batch-mode -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/antonycc/mdcms-lib deploy ;
+        env:
+          # Referenced in the settings.xml file which we generated above.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,41 @@
+# Run the build docker image using file system resources
+# Usage:
+# $ ./mvnw --settings settings.xml clean install
+# $ docker compose --env-file ./target/classes/docker-compose.env build --no-cache --pull
+# $ docker compose --env-file ./target/classes/docker-compose.env up --force-recreate --detach
+# $ docker compose --env-file ./target/classes/docker-compose.env logs --tail="all" --follow
+# $ docker compose --env-file ./target/classes/docker-compose.env down --remove-orphans
+# Browse: curl --head http://localhost:8081/home.html
+version: '3.8'
+services:
+  web:
+    image: "${APP_IMAGE}"
+    ports:
+      - 8080:8080
+    volumes:
+      # WebApp classpath location referenced by content.xml and pom-old-parent.xml for jetty
+      # e.g.: base="/etc/gb-web" to load Spring properties
+      # e.g.: <extraClasspath>/etc/gb-web</extraClasspath>
+      - ./src/test/docker/app/etc/gb-web:/etc/gb-web:ro
+      # Content items and assets to be loaded from the filesystem referenced by catalogue.properties.
+      # e.g. catalogue.productContentBasePath=urn:diyaccounting.co.uk:file:///var/data/content/
+      - ../gb-web-local/src/main/resources/content:/var/data/content:ro
+      # Catalogue files to be loaded from the filesystem referenced by catalogue.properties.
+      # e.g. catalogue.catalogueResource=urn:diyaccounting.co.uk:file:///var/data/catalogue/catalogue.txt
+      - ../gb-web-local/src/main/resources/catalogue:/var/data/catalogue:ro
+      # Stock files to be loaded from the filesystem referenced by catalogue.properties.
+      # e.g. catalogue.stockUrn=urn:diyaccounting.co.uk:file:///var/data/stock
+      - ../gb-web-local/src/main/resources/stock:/var/data/stock:ro
+      # The filesystem location where purchases documents are saved and loaded referenced in environment.properties.
+      # e.g. order.purchasesUrn=urn:diyaccounting.co.uk:file:///var/data/purchases/
+      - ./target/test-classes/purchases:/var/data/purchases:rw
+  web:
+    build:
+      context: src/test/docker/http
+    ports:
+      - 8081:80
+    volumes:
+      # Serve a home directory by mounting a doc root for nginx referenced by nginx.conf
+      - ./src/main/webapp:/usr/share/webapp:ro
+      # Serve the content assets by mounting a doc root for nginx referenced by nginx.conf
+      - ../src/main/resources/content/assets:/usr/share/content/assets:ro

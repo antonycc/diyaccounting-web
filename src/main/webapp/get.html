@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" itemscope="" itemtype="http://schema.org/Organization">
+<head>
+   <title>Select your DIY Accounting package</title>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta http-equiv="Content-Language" content="en-gb" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="robots" content="All" />
+   <meta property="og:image" content="styles/label/logo.png" />
+   <meta property="og:url" content="https://www.diyaccounting.co.uk/" />
+   <meta property="og:site_name" content="DIY Accounting" />
+   <meta property="og:type" content="website" />
+   <meta property="fb:admins" content="DIY.Accounting.Software" />
+   <meta itemprop="image" content="styles/label/logo.png" />
+   <meta name="copyright" content="DIY Accounting Limited" />
+   <meta name="author" content="DIY Accounting Limited" />
+   <link rel="author" href="https://plus.google.com/104173413808551377362" />
+   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+   <link rel="canonical" href="https://www.diyaccounting.co.uk/get.html" />
+   <meta property="og:title" itemprop="name" content="DonatePage"/>
+
+   <!-- Populated using template -->
+   <meta name="description" itemprop="description"  content="{{pages.buy.metaDescription}}" />
+   <meta name="keywords" content="{{pages.buy.keywords}}" />
+
+   <!-- CSS -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link href="styles/label/style.css" rel="stylesheet" type="text/css" title="Default Theme" media="screen" />
+
+   <!-- JS Libraries -->
+   <script src="js/prototype.js" type="text/javascript"></script>
+   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+   <!-- Obtain and distribute dynamic content -->
+   <script src="js/utils.js"></script>
+
+   <!-- Google Analytics tracking code (asynchronous) -->
+   <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1035014-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+   </script>
+
+   <!-- Donate or Download script -->
+   <script type="text/javascript">
+      function paypalDonate() {
+         const product = $('#selectedProduct').val();
+         const period = $('#selectedPeriod').val();
+          let params = 'product=' + product;
+          params += '&amp;period=' + period;
+          params += '&amp;paypalHostedButtonType=' + $('#paypalHostedButtonType').val();;
+          params += '&amp;paypalHostedButtonId=' + $('#paypalHostedButtonId').val();;
+          params += '&amp;paypalHostedButtonEnvironment=' + $('#paypalHostedButtonEnvironment').val();;
+         window.location.href = 'donatepaypal.html?' + params.replaceAll('amp;', '');
+      }
+      function donotDonate() {
+          const product = $('#selectedProduct').val();
+          const period = $('#selectedPeriod').val();
+          let params = 'product=' + product + '&amp;period=' + period;
+          window.location.href = 'download.html?' + params.replaceAll('amp;', '');
+      }
+   </script>
+</head>
+
+<body>
+<div id="header">
+   <!-- Populated with load("header.html") -->
+</div>
+<div class="pageContainer">
+   <div class="selectionBanner">
+      <script id="checkoutJst" type="x-handlebars-template">
+         <div class="selection">
+            <div id="selectionContent">
+               {{#if formattedPrice}}
+                  Please download your copy of <b>{{selectedProduct.catalogueName}}</b>
+                  for the <b>Year Ending {{selectedPeriod.name}}</b> with a donation.
+                  DIY Accounting is free to use, but we ask for a donation to help us
+                  continue to develop and support the software.
+               {{else}}
+                  {{{pages.buy.description}}}
+               {{/if}}
+            </div>
+         </div>
+         <div class="checkout">
+            {{#if formattedPrice}}
+                <table>
+                    <tr><td><a href="#" onclick="paypalDonate();" class="basket">Download</a></td></tr>
+                    <tr><td>&nbsp;</td></tr>
+                    <tr><td><a href="#" onclick="donotDonate();">Download without donating</a></td></tr>
+                 </table>
+            {{else}}
+               <p>Select a product and period.</p>
+            {{/if}}
+            <div class="clear"></div>
+         </div>
+      </script>
+      <div class="clear"></div>
+   </div>
+    <div class="selectionContainer">
+       <script id="selectionJst" type="x-handlebars-template">
+           <!-- Products -->
+           <div class="criterion">
+              {{#if selectedProduct}}
+                  <p>1. You have selected: {{selectedProduct.catalogueName}}</p>
+                  <input id="selectedProduct" type="hidden" name="selectedProduct" value="{{selectedProduct.catalogueName}}"/>
+                  <input id="paypalHostedButtonType" type="hidden" name="paypalHostedButtonType" value="{{site.paypalHostedButtonType}}"/>
+                  <input id="paypalHostedButtonId" type="hidden" name="paypalHostedButtonId" value="{{site.paypalHostedButtonId}}"/>
+                  <input id="paypalHostedButtonEnvironment" type="hidden" name="paypalHostedButtonEnvironment" value="{{site.paypalHostedButtonEnvironment}}"/>
+                  <a href="get.html" class="button">Change product</a>
+              {{else}}
+                 <p>1. Select product</p>
+                 <ul>
+                     {{#each availableProducts}}
+                        <li>
+                           <a href="get.html?product={{this.catalogueName}}" class="button">{{this.catalogueName}}</a>
+                        </li>
+                    {{/each}}
+                 </ul>
+              {{/if}}
+           </div>
+           <!-- Periods -->
+           <div class="criterion">
+              {{#if selectedPeriod}}
+                 <p>1. You have selected: {{selectedPeriod.name}}</p>
+                 <input id="selectedPeriod" type="hidden" name="selectedPeriod" value="{{selectedPeriod.name}}"/>
+                 <a href="get.html?product={{selectedProduct.catalogueName}}" class="button">Change period</a>
+              {{else}}
+                  {{#if selectedProduct}}
+                    <p>2. Choose your year end</p>
+                    <ul>
+                        {{#each availablePeriods}}
+                           <li>
+                              <a href="get.html?product={{../selectedProduct.catalogueName}}&amp;period={{this.name}}" class="button">Year to {{this.name}}</a>
+                           </li>
+                        {{/each}}
+                    </ul>
+                  {{else}}
+                     <p>2. Select your product to see the year ends</p>
+                  {{/if}}
+              {{/if}}
+         </div>
+         <!-- Bundles -->
+         <div class="criterion">
+           <!-- Not currently used (no bundles are available for sale) -->
+         </div>
+       </script>
+       <div class="clear"></div>
+    </div>
+    <br/>
+</div>
+<div id="footer">
+   <!-- Populated with load("footer.html") -->
+</div>
+<script type="application/javascript">
+   $(function() {
+      $("#header").load("header.html");
+      $("#footer").load("footer.html");
+      const urlParams = new URLSearchParams(window.location.search);
+      let contentUrl = 'content/page';
+      if(urlParams.has('product')){
+         const productDashedName = urlParams.get('product').replace('Accounts', '').replace('Product', '').trim().replaceAll(' ', '-')
+         if(urlParams.has('period')){
+            const periodDashedName = urlParams.get('period').trim().replace(' ', '-');
+            contentUrl = 'content/product-for-period/' + productDashedName + '/' + periodDashedName;
+         }else{
+            contentUrl = 'content/products/' + productDashedName;
+         }
+      }
+      $.getJSON(contentUrl, function() {})
+            .done(function(context) {
+               context.product = urlParams.get('product');
+               context.period = urlParams.get('period');
+               gbWebApp.applyTemplateForElementsThatEndWith('Jst', context);
+               gbWebApp.applyAttributeTemplateTo($('meta[name="description"]'),  'content', context);
+               gbWebApp.applyAttributeTemplateTo($('meta[name="keywords"]'),     'content', context);
+            })
+            .fail(function() {
+               window.location.replace('servererror.html');
+            });
+   });
+</script>
+</body>
+</html>

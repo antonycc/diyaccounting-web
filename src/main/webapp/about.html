@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" itemscope="" itemtype="http://schema.org/Organization">
+<head>
+	<title>About DIY Accounting</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="en-gb" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="robots" content="All" />
+	<meta property="og:image" content="styles/label/logo.png" />
+	<meta property="og:url" content="https://www.diyaccounting.co.uk/" />
+	<meta property="og:site_name" content="DIY Accounting" />
+	<meta property="og:type" content="website" />
+	<meta property="fb:admins" content="DIY.Accounting.Software" />
+	<meta itemprop="image" content="styles/label/logo.png" />
+	<meta name="copyright" content="DIY Accounting Limited" />
+	<meta name="author" content="DIY Accounting Limited" />
+	<link rel="author" href="https://plus.google.com/104173413808551377362" />
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<link rel="canonical" href="https://www.diyaccounting.co.uk/about.html" />
+	<meta property="og:title" itemprop="name" content="AboutPage"/>
+
+	<!-- Populated using template -->
+	<meta name="description" itemprop="description"  content="{{pages.about.metaDescription}}" />
+	<meta name="keywords" content="{{pages.about.keywords}}" />
+
+	<!-- CSS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="styles/label/style.css" rel="stylesheet" type="text/css" title="Default Theme" media="screen" />
+
+	<!-- JS Libraries -->
+	<script src="js/prototype.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+	<!-- Obtain and distribute dynamic content -->
+	<script src="js/utils.js"></script>
+
+	<!-- Google Analytics tracking code (asynchronous) -->
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-1035014-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</head>
+<body>
+<div id="header">
+	<!-- Populated with load("header.html") -->
+</div>
+<div class="pageContainer">
+	<div class="contentTop">
+		<div class="twoColumnContainer">
+			<div class="left sideNav">
+				<ul>
+					<li><a href="about.html">About</a></li>
+					<li><a href="history.html">History</a></li>
+				</ul>
+			</div>
+			<div class="right">
+				<script id="pageBodyJst" type="x-handlebars-template">
+					<h1 class="title">About DIY Accounting</h1>
+					<div class="aboutContent">
+						{{#if pages.about.image}}
+							<div class="image"><img src="{{pages.about.image.src}}" alt="{{pages.about.image.alt}}" /></div>
+						{{/if}}
+						<div class="aboutContentBody">
+							{{{pages.about.trailingBody}}}
+						</div>
+						<div class="clear"></div>
+					</div>
+				</script>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<!-- Populated with load("footer.html") -->
+</div>
+<script type="application/javascript">
+	$(function() {
+		$("#header").load("header.html");
+		$("#footer").load("footer.html");
+		$.getJSON('content/page', function() {})
+				.done(function(context) {
+					gbWebApp.applyTemplateForElementsThatEndWith('Jst', context);
+					gbWebApp.applyAttributeTemplateTo($('meta[name="description"]'),  'content', context);
+					gbWebApp.applyAttributeTemplateTo($('meta[name="keywords"]'),     'content', context);
+				})
+				.fail(function() {
+					window.location.replace('servererror.html');
+				});
+	});
+</script>
+</body>
+</html>

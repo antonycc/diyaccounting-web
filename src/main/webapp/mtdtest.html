@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" itemscope="" itemtype="http://schema.org/Organization">
+<head>
+	<title>DIY Accounting - Test Page for the Markdown CMS</title>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <meta http-equiv="Content-Language" content="en-gb">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="robots" content="noindex" />
+   <meta name="AdsBot-Google" content="noindex" />
+	<meta name="description" content="noindex">
+   <meta name="keywords" content="noindex">
+   <meta property="og:title" content="HomePage">
+   <meta property="og:type" content="Organization">
+   <meta property="og:image" content="styles/label/logo.png">
+   <meta property="og:url" content="https://www.diyaccounting.co.uk/">
+   <meta property="og:site_name" content="DIY Accounting">
+   <meta property="fb:admins" content="DIY.Accounting.Software">
+   <meta itemprop="name" content="DIY Accounting Software, Small Business, Payslip Software, Tax Return, Limited Company UK">
+   <meta itemprop="description" content="Small business accounting software, payslip software, self employed and company accounts spreadsheets, tax return software UK">
+   <meta itemprop="image" content="styles/label/logo.png">
+   <meta name="copyright" content="DIY Accounting Limited">
+   <meta name="author" content="DIY Accounting Limited">
+   
+   <link rel="canonical" href="https://www.diyaccounting.co.uk/mtdtest.html">
+   <link rel="author" href="https://plus.google.com/104173413808551377362">
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	
+	<!-- CSS -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link href="styles/label/style.css?" rel="stylesheet" type="text/css" title="Default Theme" media="screen">
+
+   <!-- Google Analytics tracking code (asynchronous) -->
+   <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1035014-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+           var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+           ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+     </script>
+
+</head>
+
+<!--
+
+Manual deploy to expose at: https://www.diyaccounting.co.uk/confirm/mtdtest.html
+scp -i "${SSH_KEY_FILE?}" ../../../present/gb-web/src/main/webapp/mtdtest.html ubuntu@${TARGET_HOST?}:~ubuntu/.
+ssh -i "${SSH_KEY_FILE?}" ubuntu@${TARGET_HOST?}
+$ sudo chown root:root mtdtest.html
+$ sudo chmod a+rx mtdtest.html
+$ sudo cp mtdtest.html /var/www.diyaccounting.co.uk/confirm/.
+$ sudo rm mtdtest.html
+
+-->
+
+
+<body>
+
+<div class="headerContainer">
+	<div class="header">
+      <div class="logo"></div>
+		
+		<div class="nav">
+			<ul>
+               <li><a href="home.html">Home</a></li>
+               <li><a href="products.html">Products</a></li>
+               <li><a href="support.html">Support</a></li>
+               <li><a href="whatsnew.html">What's New</a></li>
+               <li><a href="about.html">About</a></li>
+               <li class="last"><a href="contact.html">Contact</a></li>
+     		</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="pageContainer">
+    <div class="strapLine">
+       <br/>
+       <h1>DIY Accounting's Making Tax Digital test page.</h1>
+       Use this page if you are participating in DIY Accounting's MTD test program.
+    </div>
+
+   <div class="featuredContainer">
+         <form>
+            Period Key: <input id="periodKey" name="periodKey" type="text" /><!-- Example: "#001" --><br/>
+            VAT Due Sales: <input id="vatDueSales" name="vatDueSales" type="text" /><!-- Example: 100.00 --><br/>
+            VAT Due Acquisitions: <input id="vatDueAcquisitions" name="vatDueAcquisitions" type="text" /><!-- Example: 100.00 --><br/>
+            Total VAT Due: <input id="totalVatDue" name="totalVatDue" type="text" /><!-- Example: 200 --><br/>
+            VAT Reclaimed Current Period: <input id="vatReclaimedCurrPeriod" name="vatReclaimedCurrPeriod" type="text" /><!-- Example: 100.00 --><br/>
+            Net VAT Due: <input id="netVatDue" name="netVatDue" type="text" /><!-- Example: 100 --><br/>
+            Total Value Sales ex-VAT: <input id="totalValueSalesExVAT" name="totalValueSalesExVAT" type="text" /><!-- Example: 500 --><br/>
+            Total Value Purchases ex-VAT: <input id="totalValuePurchasesExVAT" name="totalValuePurchasesExVAT" type="text" /><!-- Example: 500  --><br/>
+            Total Value Goods Supplied ex-VAT: <input id="totalValueGoodsSuppliedExVAT" name="totalValueGoodsSuppliedExVAT" type="text" /><!-- Example: 500 --><br/>
+            Total Acquisitions ex-VAT: <input id="totalAcquisitionsExVAT" name="totalAcquisitionsExVAT" type="text" /><!-- Example: 500 --><br/>
+            Finalised: <input id="finalised" name="finalised" type="text" /><!-- Example: true --><br/>
+            <input id="submit" type="submit" value="Submit">
+         </form>
+         <br/>
+         If you have arrived here by accident, please return to <a href="home.html">our home</a> page.<br/>
+         <br/>
+   </div>
+</div>
+
+<div class="footerContainer">
+	<div class="footer">
+		<div class="copyright">Copyright © 2009-2021 DIY Accounting Limited</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+</body>
+
+</html>

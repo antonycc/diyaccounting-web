@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" itemscope="" itemtype="http://schema.org/Organization">
+<head>
+   <title>DIY Accounting Software, Small Business, Payslip Software, Tax Return, Limited Company UK</title>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta http-equiv="Content-Language" content="en-gb" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="robots" content="noindex" />
+   <meta name="AdsBot-Google" content="noindex" />
+   <meta property="og:image" content="styles/label/logo.png" />
+   <meta property="og:url" content="https://www.diyaccounting.co.uk/" />
+   <meta property="og:site_name" content="DIY Accounting" />
+   <meta property="og:type" content="website" />
+   <meta property="fb:admins" content="DIY.Accounting.Software" />
+   <meta itemprop="image" content="styles/label/logo.png" />
+   <meta name="copyright" content="DIY Accounting Limited" />
+   <meta name="author" content="DIY Accounting Limited" />
+   <link rel="author" href="https://plus.google.com/104173413808551377362" />
+   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+   <link rel="canonical" href="https://www.diyaccounting.co.uk/notfound.html" />
+   <meta property="og:title" itemprop="name" content="NotFoundPage"/>
+   <meta name="description" itemprop="description"  content="noindex" />
+   <meta name="keywords" content="noindex" />
+
+   <!-- CSS -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link href="styles/label/style.css" rel="stylesheet" type="text/css" title="Default Theme" media="screen" />
+
+   <!-- JS Libraries -->
+   <script src="js/prototype.js" type="text/javascript"></script>
+   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+   <!-- Obtain and distribute dynamic content -->
+   <script src="js/utils.js"></script>
+
+   <!-- Google Analytics tracking code (asynchronous) -->
+   <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1035014-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+   </script>
+</head>
+<body>
+<div id="header">
+   <!-- Populated with load("header.html") -->
+</div>
+<div class="pageContainer">
+   <div class="strapLine">
+      <div class="left">
+         <br/>
+         <h1>Not Found.</h1>
+         <br/>
+         Sorry, something we didn't expect to happen has happened. Try the <a href="home.html">Home</a> page.<br/>
+      </div>
+      <div class="right">
+         <div class="text">
+            Know what you're looking for? <br />
+            <strong>Go straight ahead.</strong>
+         </div>
+         <a href="get.html">Download</a>
+      </div>
+      <div class="clear"></div>
+   </div>
+   <!-- ************************************ Homepage About Text *************************************** -->
+   <div class="homeContainer">
+      <div class="about">
+         <script id="pageBodyJst" type="x-handlebars-template">
+            {{{pages.home.trailingBody}}}
+            <a href="products.html" class="button">{{{pages.home.description}}}</a>
+         </script>
+      </div>
+      <!-- ************************************ Homepage Twitter *************************************** -->
+      <div class="twitter">
+         <div class="twitter_update_list">
+            <a class="twitter-timeline" data-chrome="transparent"  data-dnt="true" href="https://twitter.com/DIYAccounting"  data-widget-id="374802157469331456">Tweets by @DIYAccounting</a>
+         </div>
+         <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+   </div>
+   <!-- ************************************ "Featured" promo strip ************************************ -->
+   <div class="featuredContainer">
+      <script id="featuredProductsJst" type="x-handlebars-template">
+         {{#each products}}
+         {{#if this.featured}}
+         <div class="featured">
+            <div class="productType">{{this.title}}</div>
+            <div class="productInfo">{{this.shortTitle}}</div>
+            <div class="buttons">
+               <a href="product.html?product={{this.name}}" class="button">More Info</a>
+               <a href="get.html?product={{this.shortTitle}}" class="basketButton">Download</a>
+            </div>
+            <div typeof="schema:Product">
+               <div rel="schema:image" resource="{{this.image.src}}"></div>
+               <div property="schema:name" content="{{this.title}}"></div>
+               <div property="schema:description" content="{{this.metaDescription}}"></div>
+               <div rel="schema:brand">
+                  <div typeof="schema:Brand">
+                     <div property="schema:name" content="DIY Accounting"></div>
+                  </div>
+               </div>
+               <div rel="schema:offers">
+                  <div typeof="schema:Offer">
+                     <div property="schema:availability" content="https://schema.org/InStock"></div>
+                     <div rel="schema:url" resource="get.html?product={{this.shortTitle}}"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {{/if}}
+         {{/each}}
+      </script>
+      <div class="clear"></div>
+   </div>
+   <!-- ************************************ "Featured Partner" promo strip ************************************ -->
+   <div class="featuredContainer">
+      <script id="partnerProductsJst" type="x-handlebars-template">
+         {{#each products}}
+         {{#if this.featuredPartner}}
+         <div class="featured">
+            <div class="productType">{{this.title}}</div>
+            <div class="productInfo">{{this.shortTitle}}</div>
+            <div class="buttons">
+               <a href="product.html?product={{this.name}}" class="button">More Info</a>
+               {{#if this.fulfillmentUrl}}
+               <a href="{{this.fulfillmentUrl}}" class="basketButton" target="_blank" >Download</a>
+               {{else}}
+               <a href="get.html?product={{this.shortTitle}}" class="basketButton">Download</a>
+               {{/if}}
+            </div>
+            <div typeof="schema:Product">
+               <div rel="schema:image" resource="{{this.image.src}}"></div>
+               <div property="schema:name" content="{{this.title}}"></div>
+               <div property="schema:description" content="{{this.metaDescription}}"></div>
+               <div rel="schema:brand">
+                  <div typeof="schema:Brand">
+                     <div property="schema:name" content="DIY Accounting"></div>
+                  </div>
+               </div>
+               <div rel="schema:offers">
+                  <div typeof="schema:Offer">
+                     <div property="schema:availability" content="https://schema.org/InStock"></div>
+                     <div rel="schema:url" resource="get.html?product={{this.shortTitle}}"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {{/if}}
+         {{/each}}
+      </script>
+      <div class="clear"></div>
+   </div>
+   <!-- ************************************ Homepage Listing of Products *************************************** -->
+   <div class="listingContainer">
+      <div class="twoColumnContainer">
+         <div class="left">
+            <h2>Important</h2>
+         </div>
+         <div class="right">
+            <script id="productInfoJst" type="x-handlebars-template">
+               <div class="productInfo">
+                  {{{info.body}}}
+               </div>
+            </script>
+         </div>
+         <div class="clear"></div>
+      </div>
+      <div class="twoColumnContainer">
+         <div class="left">
+            <h2>Products</h2>
+         </div>
+         <div class="right">
+            <script id="buyProductsJst" type="x-handlebars-template">
+               {{#each products}}
+               <div class="productInfo">
+                  <h2>{{this.title}}</h2>
+                  <p>{{{this.description}}}</p>
+                  <div class="buttons">
+                     <a href="product.html?product={{this.name}}" class="button">{{this.shortTitle}}</a>
+                     {{#if this.fulfillmentUrl}}
+                     <a href="{{this.fulfillmentUrl}}" class="basketButton" target="_blank" >Download</a>
+                     {{else}}
+                     <a href="get.html?product={{this.shortTitle}}" class="basketButton" >Download</a>
+                     {{/if}}
+                  </div>
+                  <div class="clear"></div>
+                  <div typeof="schema:Product">
+                     <div rel="schema:image" resource="{{this.image.src}}"></div>
+                     <div property="schema:name" content="{{this.title}}"></div>
+                     <div property="schema:description" content="{{this.metaDescription}}"></div>
+                     <div rel="schema:brand">
+                        <div typeof="schema:Brand">
+                           <div property="schema:name" content="DIY Accounting"></div>
+                        </div>
+                     </div>
+                     <div rel="schema:offers">
+                        <div typeof="schema:Offer">
+                           <div property="schema:availability" content="https://schema.org/InStock"></div>
+                           <div rel="schema:url" resource="get.html?product={{this.shortTitle}}"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {{/each}}
+            </script>
+         </div>
+         <div class="clear"></div>
+      </div>
+   </div>
+</div>
+<div id="footer">
+   <!-- Populated with load("footer.html") -->
+</div>
+<script type="application/javascript">
+   $(function() {
+      $("#header").load("header.html");
+      $("#footer").load("footer.html");
+      $.getJSON('content/page', function() {})
+            .done(function(context) {
+               gbWebApp.applyTemplateForElementsThatEndWith('Jst', context);
+            })
+            .fail(function() {
+               window.location.replace('servererror.html');
+            });
+   });
+</script>
+</body>
+</html>
