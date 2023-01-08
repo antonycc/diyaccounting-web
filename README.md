@@ -91,7 +91,7 @@ $ ./open-ssl-pk-enc.sh list-recipients
 [recipients/] antony@mbp.new (PEM is available locally in /Users/antony/.ssh)   <--- At least one available recipient is required
 $ ./decrypt.sh
 $ source ./github-antonycc-keys.sh
-$ ./mvnw --settings settings.xml clean spring-boot:run
+$ ./mvnw --settings settings.xml clean spring-boot:run --activate-profiles with-assets
 ...
 2023-01-07T23:45:48.445+01:00  INFO 85585 --- [           main] u.c.d.web.SpringbootRestApiApplication   : Application for diyaccounting-web is logging at info.
 2023-01-07T23:45:48.445+01:00  WARN 85585 --- [           main] u.c.d.web.SpringbootRestApiApplication   : Application for diyaccounting-web is logging at warning.
@@ -103,6 +103,12 @@ $ ./mvnw --settings settings.xml clean spring-boot:run
 [In a separate terminal]
 
 $ curl --head http://localhost:8080/content/page
+HTTP/1.1 200 
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Sat, 07 Jan 2023 22:46:28 GMT
+
+$ curl --head http://localhost:8080/home.html
 HTTP/1.1 200 
 Content-Type: application/json
 Transfer-Encoding: chunked
@@ -121,7 +127,7 @@ Java version: 17.0.5, vendor: Homebrew, runtime: /usr/local/Cellar/openjdk@17/17
 Default locale: en_GB, platform encoding: UTF-8
 OS name: "mac os x", version: "13.0.1", arch: "x86_64", family: "mac"
 $ source ./github-antonycc-keys.sh
-$ ./mvnw --settings settings.xml clean install --activate-profiles with-assets
+$ ./mvnw --settings settings.xml clean install
 ...
 [INFO] --- maven-war-plugin:3.3.2:war (default-war) @ diyaccounting-web ---
 [INFO] Packaging webapp
