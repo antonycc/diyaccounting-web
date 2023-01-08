@@ -31,9 +31,10 @@ jobs:
           githubServer: false
 
       - run: echo "~/.m2/settings.xml:" ; cat ~/.m2/settings.xml ;
+      - run: echo "ANTONYCC_REPOSITORY_GITHUB_PAT=${ANTONYCC_REPOSITORY_GITHUB_PAT?}"
 
       - name: Publish package
-        run: mvn --batch-mode -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/antonycc/mdcms-lib deploy ;
+        run: mvn --settings ~/.m2/settings.xml --batch-mode -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/antonycc/mdcms-lib deploy ;
         env:
           # Referenced in the settings.xml file which we generated above.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
