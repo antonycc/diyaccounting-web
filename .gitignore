@@ -55,4 +55,3 @@ build/
 **/*releaseBackup
 **/test.txt
 **/github-antonycc-keys.sh
-src/main/webapp/assets

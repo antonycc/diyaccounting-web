@@ -26,7 +26,7 @@ public class MdPageTest {
    @Test
    public void expectAttributesToPreseveSetValues() throws ContentException {
 
-      String testPath = baseFileUrn + "test-content/test/path/TestPage.md";
+      String testPath = baseFileUrn + "src/test/path/TestPage.md";
 
       // Expected values
       String expectedTitle = "Test Title";
@@ -57,7 +57,7 @@ public class MdPageTest {
    @Test
    public void expectSpecificContent() throws ContentException {
 
-      String testPath = baseFileUrn + "test-content/test/path/TestPage.md";
+      String testPath = baseFileUrn + "src/test/path/TestPage.md";
 
       // Expected values
       String expectedTitle = "X";

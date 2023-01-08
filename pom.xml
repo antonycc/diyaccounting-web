@@ -507,26 +507,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- Delete expanded assets from ./src/main/webapp/assets (these are used by the with-assets profile). -->
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>clean-assets</id>
-						<phase>clean</phase>
-						<goals>
-							<goal>clean</goal>
-						</goals>
-						<configuration>
-							<filesets>
-								<fileset>
-									<directory>src/main/webapp/assets</directory>
-								</fileset>
-							</filesets>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 			<!--plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -629,71 +609,7 @@
 		</plugins>
 	</reporting>
 
-	<!-- Top see images in the web app run (after fixing "- -"):
-     $ ./mvnw - -settings settings.xml clean spring-boot:run - -activate-profiles with-assets
-	-->
 	<profiles>
-		<profile>
-			<id>with-assets</id>
-			<dependencies>
-				<!--dependency>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot</artifactId>
-					<scope>test</scope>
-				</dependency-->
-				<!--dependency>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-autoconfigure</artifactId>
-					<scope>test</scope>
-				</dependency-->
-			</dependencies>
-			<build>
-				<plugins>
-					<!-- Copy expanded assets from local dependency to ./src/main/webapp/assets to serve images from tomcat -->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-resources-plugin</artifactId>
-						<!--version>3.3.0</version-->
-						<executions>
-							<execution>
-								<id>copy-content-assets</id>
-								<phase>generate-resources</phase>
-								<goals>
-									<goal>copy-resources</goal>
-								</goals>
-								<configuration>
-									<!-- ${project.build.directory}/.. -->
-									<outputDirectory>${project.build.sourceDirectory}/../webapp/assets</outputDirectory>
-									<overwrite>true</overwrite>
-									<resources>
-										<resource>
-											<directory>src/main/resources/content/assets</directory>
-										</resource>
-									</resources>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<!--plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-war-plugin</artifactId>
-						<configuration>
-							<webResources>
-								<resource>
-									<directory>src/test/webapp</directory>
-									<includes>
-										<include>**/context.xml</include>
-									</includes>
-									<!- -excludes>
-										<exclude>main/webapp/META-INF/context.xml</exclude>
-									</excludes- ->
-								</resource>
-							</webResources>
-						</configuration>
-					</plugin-->
-				</plugins>
-			</build>
-		</profile>
 	</profiles>
 
 </project>

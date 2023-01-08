@@ -91,7 +91,7 @@ $ ./open-ssl-pk-enc.sh list-recipients
 [recipients/] antony@mbp.new (PEM is available locally in /Users/antony/.ssh)   <--- At least one available recipient is required
 $ ./decrypt.sh
 $ source ./github-antonycc-keys.sh
-$ ./mvnw --settings settings.xml clean spring-boot:run --activate-profiles with-assets
+$ ./mvnw --settings settings.xml clean spring-boot:run
 ...
 2023-01-07T23:45:48.445+01:00  INFO 85585 --- [           main] u.c.d.web.SpringbootRestApiApplication   : Application for diyaccounting-web is logging at info.
 2023-01-07T23:45:48.445+01:00  WARN 85585 --- [           main] u.c.d.web.SpringbootRestApiApplication   : Application for diyaccounting-web is logging at warning.

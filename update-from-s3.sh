@@ -2,6 +2,7 @@
 # Purpose: Replace the current content, catalogue and crm export with the latest from S3
 # TODO: Extract the content and packages from the published docker images.
 # TODO: Obtain a sample of zips for packages.
+# TODO: Update assets under the webapp folder
 
 aws s3 cp 's3://diyaccounting-polycode-archive/ct-md-latest.zip' 'src/main/resources/ct-md-latest.zip' \
   && rm -rf 'src/main/resources/content' \
