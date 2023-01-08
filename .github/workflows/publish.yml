@@ -1,4 +1,4 @@
-name: Publish package as Docker image to GitHub Packages
+name: Build and Publish Docker Image to GitHub Packages
 on:
   #push:
   #  branches:
@@ -37,7 +37,7 @@ jobs:
       # --settings ~/.m2/settings.xml
 
       - name: Publish package
-        run: mvn --batch-mode -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/antonycc/mdcms-lib deploy ;
+        run: mvn --batch-mode -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/antonycc/mdcms-lib deploy spring-boot:build-image ;
         env:
           # Referenced in the settings.xml file which we generated above.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

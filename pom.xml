@@ -514,7 +514,7 @@
 			<!-- mvn clean install dockerfile:push   -->
 			<!-- docker images -a | head -1 ; docker images -a | grep 'gb-web' -->
 			<!-- TODO: Replace with SpringBoot image generator -->
-			<plugin>
+			<!--plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<executions>
@@ -527,13 +527,13 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>${project.name}</repository><!-- local ${project.groupId} ${project.name} -->
-					<tag>${project.version}</tag><!-- latest ${project.version} -->
+					<repository>${project.name}</repository><!- - local ${project.groupId} ${project.name} - ->
+					<tag>${project.version}</tag><!- - latest ${project.version} - ->
 					<buildArgs>
 						<WAR_FILE>${project.build.finalName}.war</WAR_FILE>
 					</buildArgs>
 				</configuration>
-			</plugin>
+			</plugin-->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>xml-maven-plugin</artifactId>

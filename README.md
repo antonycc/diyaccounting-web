@@ -127,32 +127,23 @@ Java version: 17.0.5, vendor: Homebrew, runtime: /usr/local/Cellar/openjdk@17/17
 Default locale: en_GB, platform encoding: UTF-8
 OS name: "mac os x", version: "13.0.1", arch: "x86_64", family: "mac"
 $ source ./github-antonycc-keys.sh
-$ ./mvnw --settings settings.xml clean install
+$ ./mvnw --settings settings.xml clean install spring-boot:build-image
 ...
-[INFO] --- maven-war-plugin:3.3.2:war (default-war) @ diyaccounting-web ---
-[INFO] Packaging webapp
-[INFO] Assembling webapp [diyaccounting-web] in [/Users/antony/projects/diyaccounting-web/target/diyaccounting-web-0.1-SNAPSHOT]
-[INFO] Processing war project
-[INFO] Copying webapp resources [/Users/antony/projects/diyaccounting-web/src/main/webapp]
-[INFO] Building war: /Users/antony/projects/diyaccounting-web/target/diyaccounting-web-0.1-SNAPSHOT.war
 [INFO] 
-[INFO] --- spring-boot-maven-plugin:3.0.1:repackage (repackage) @ diyaccounting-web ---
-[INFO] Replacing main artifact with repackaged archive
+[INFO] Successfully built image 'docker.io/library/diyaccounting-web:0.1-SNAPSHOT'
 [INFO] 
-[INFO] --- maven-install-plugin:3.0.1:install (default-install) @ diyaccounting-web ---
-[INFO] Installing /Users/antony/projects/diyaccounting-web/pom.xml to /Users/antony/.m2/repository/uk/co/diyaccounting/web/diyaccounting-web/0.1-SNAPSHOT/diyaccounting-web-0.1-SNAPSHOT.pom
-[INFO] Installing /Users/antony/projects/diyaccounting-web/target/diyaccounting-web-0.1-SNAPSHOT.war to /Users/antony/.m2/repository/uk/co/diyaccounting/web/diyaccounting-web/0.1-SNAPSHOT/diyaccounting-web-0.1-SNAPSHOT.war
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.439 s
-[INFO] Finished at: 2023-01-07T23:48:31+01:00
+[INFO] Total time:  22.446 s
+[INFO] Finished at: 2023-01-08T23:16:01+01:00
 [INFO] ------------------------------------------------------------------------
 $
 ```
 
 Docker build
 ============
+TODO: remove, once the Dockerfile is removed.
 The Docker build is redundant because the Maven build produces a Docker image from the same Dockerfile.
 This may be useful for debugging the Docker build.
 ```bash
@@ -167,7 +158,7 @@ $ docker build --build-arg WAR_FILE=diyaccounting-web-0.1-SNAPSHOT.war .
 $ 
 ```
 
-RUnning with Docker compose
+Running with Docker compose
 ===========================
 TODO: Work in progress, currently the Spring dispatcher servlet is not being found.
 ```bash
