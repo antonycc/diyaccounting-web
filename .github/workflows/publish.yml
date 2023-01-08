@@ -70,4 +70,4 @@ jobs:
           tags: diyaccounting-web:0.1-SNAPSHOT
           #labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            WAR_FILE=target/diyaccounting-web-0.1-SNAPSHOT.war
+            WAR_FILE=diyaccounting-web-0.1-SNAPSHOT.war

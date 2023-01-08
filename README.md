@@ -151,6 +151,20 @@ $ ./mvnw --settings settings.xml clean install
 $
 ```
 
+Docker build
+============
+```
+$ source ./github-antonycc-keys.sh
+$ ./mvnw --settings settings.xml clean install
+... [INFO] BUILD SUCCESS ...
+$ docker build --build-arg WAR_FILE=diyaccounting-web-0.1-SNAPSHOT.war .
+ => [2/2] COPY target/diyaccounting-web-0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war                                             0.1s
+ => exporting to image                                                                                                                  0.2s
+ => => exporting layers                                                                                                                 0.2s
+ => => writing image sha256:d83142d478ff321cf10ae0b21d64a34c1ada5fa3b9c53148809e4e35ac48a06b
+$ docker run -it 
+```
+
 TODO: Add testing with containerised app
 ----------------------------------------
 
