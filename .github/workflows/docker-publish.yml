@@ -30,13 +30,18 @@ jobs:
           servers: '[{"id": "github", "username": "not-used", "password": "${ANTONYCC_REPOSITORY_GITHUB_PAT}"}]'
           githubServer: false
 
-      - run: echo "~/.m2/settings.xml:" ; cat ~/.m2/settings.xml ;
+      #- run: echo "~/.m2/settings.xml:" ; cat ~/.m2/settings.xml ;
+      #- run: echo "ANTONYCC_REPOSITORY_GITHUB_PAT=${ANTONYCC_REPOSITORY_GITHUB_PAT?}"
+      #  env:
+      #    ANTONYCC_REPOSITORY_GITHUB_PAT: ${{ secrets.ANTONYCC_REPOSITORY_GITHUB_PAT }}
+      # --settings ~/.m2/settings.xml
 
       - name: Publish package
         run: mvn --batch-mode -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/antonycc/mdcms-lib deploy ;
         env:
           # Referenced in the settings.xml file which we generated above.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTONYCC_REPOSITORY_GITHUB_PAT: ${{ secrets.ANTONYCC_REPOSITORY_GITHUB_PAT }}
 
       #- name: Log in to the Container registry
       #  uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
