@@ -1,23 +1,44 @@
-name: Java CI
-
-#on: [push]
+name: Build
 on:
   push:
     branches:
-      - fake-branch-6126bea4-e097-4668-993f-31d319f71f05
-      #- main
+      - main
+  #release:
+  #  types: [created]
     workflow_dispatch:
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  publish:
+    runs-on: ubuntu-latest 
+    permissions: 
+      contents: read
+      packages: write 
     steps:
+
       - uses: actions/checkout@v3
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
+
+      - uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'adopt'
-      - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
+
+      # See: https://github.com/marketplace/actions/maven-settings-action
+      - run: rm -f ~/.m2/settings.xml ;
+      - name: Generate Maven settings for GitHub Packages
+        uses: s4u/maven-settings-action@v2.8.0
+        with:
+          # ${GITHUB_ACTOR}
+          servers: '[{"id": "github", "username": "not-used", "password": "${ANTONYCC_REPOSITORY_GITHUB_PAT}"}]'
+          githubServer: false
+
+      #- run: echo "~/.m2/settings.xml:" ; cat ~/.m2/settings.xml ;
+      #- run: echo "ANTONYCC_REPOSITORY_GITHUB_PAT=${ANTONYCC_REPOSITORY_GITHUB_PAT?}"
+      #  env:
+      #    ANTONYCC_REPOSITORY_GITHUB_PAT: ${{ secrets.ANTONYCC_REPOSITORY_GITHUB_PAT }}
+      # --settings ~/.m2/settings.xml
+
+      - name: Publish package
+        run: mvn --batch-mode -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/antonycc/mdcms-lib deploy ;
+        env:
+          # Referenced in the settings.xml file which we generated above.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTONYCC_REPOSITORY_GITHUB_PAT: ${{ secrets.ANTONYCC_REPOSITORY_GITHUB_PAT }}
