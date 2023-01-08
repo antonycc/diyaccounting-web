@@ -64,6 +64,5 @@ jobs:
           #tags: ${{ steps.meta.outputs.tags }}
           tags: diyaccounting-web:0.1-SNAPSHOT
           #labels: ${{ steps.meta.outputs.labels }}
-        env:
-          # Referenced in the settings.xml file which we generated above.
-          WAR_FILE: target/diyaccounting-web-0.1-SNAPSHOT.war
+          build-args: |
+            WAR_FILE=target/diyaccounting-web-0.1-SNAPSHOT.war
