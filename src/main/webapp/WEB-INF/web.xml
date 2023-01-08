@@ -3,8 +3,20 @@
    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     version="3.0">
     
-   <display-name>DIY Accounting GB</display-name>
-   <description>DIY Accounting's frontend for GB products</description>
+   <display-name>DIY Accounting</display-name>
+   <description>DIY Accounting's frontend</description>
+
+   <servlet>
+      <servlet-name>dispatcher</servlet-name>
+      <servlet-class>
+         org.springframework.web.servlet.DispatcherServlet
+      </servlet-class>
+   </servlet>
+
+   <servlet-mapping>
+      <servlet-name>dispatcher</servlet-name>
+      <url-pattern>/</url-pattern>
+   </servlet-mapping>
 
 	<!-- JDBC data source -->
 	<!--resource-ref>
@@ -15,7 +27,7 @@
 	</resource-ref-->
 
    <!-- Spring dispatcher -->
-   <servlet>
+   <!--servlet>
       <servlet-name>appXXServlet</servlet-name>
       <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
       <init-param>
@@ -23,26 +35,26 @@
          <param-value>classpath:spring-context.xml</param-value>
       </init-param>
       <load-on-startup>1</load-on-startup>
-   </servlet>
+   </servlet-->
 
    <!--  Process all with the Spring dispatcher -->
-   <servlet-mapping>
+   <!--servlet-mapping>
       <servlet-name>appXXServlet</servlet-name>
-      <url-pattern>*.do</url-pattern> <!-- .do is friendly URL which redirects to an product, feature or article -->
+      <url-pattern>*.do</url-pattern> <!- - .do is friendly URL which redirects to an product, feature or article - ->
       <url-pattern>/sitemap.xml</url-pattern>
       <url-pattern>/content/*</url-pattern>
       <url-pattern>/gb-web/content/*</url-pattern>
-   </servlet-mapping>
+   </servlet-mapping-->
 
-   <error-page>
+   <!--error-page>
       <exception-type>uk.co.polycode.mdcms.cms.service.ContentException</exception-type>
       <location>/content/errors/404</location>
-   </error-page>
+   </error-page-->
    <!--error-page>
       <exception-type>java.lang.Exception</exception-type>
       <location>/api/errors/exception</location>
    </error-page-->
-   <error-page>
+   <!--error-page>
       <error-code>500</error-code>
       <location>/content/errors/500</location>
    </error-page>
@@ -52,7 +64,7 @@
    </error-page>
    <error-page>
       <location>/src/main/webapp/error.html</location>
-   </error-page>
+   </error-page-->
 
    <welcome-file-list>
       <welcome-file>/home.html</welcome-file>

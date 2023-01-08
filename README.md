@@ -169,12 +169,18 @@ $
 
 RUnning with Docker compose
 ===========================
+TODO: Work in progress, currently the Spring dispatcher servlet is not being found.
 ```bash
 $ source ./github-antonycc-keys.sh
 $ ./mvnw --settings settings.xml clean install
 ... [INFO] BUILD SUCCESS ...
-$ docker compose build 
+$ export APP_IMAGE=diyaccounting-web:0.1-SNAPSHOT
+$ docker compose build --no-cache --pull
+$ docker compose up --force-recreate --detach
+$ docker compose logs --tail="all" --follow
+$ docker compose down --remove-orphans
 ```
+Browse: curl --head http://localhost:8081/home.html
 
 TODO: Add testing with containerised app
 ----------------------------------------
