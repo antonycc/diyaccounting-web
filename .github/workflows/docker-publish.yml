@@ -22,11 +22,12 @@ jobs:
           distribution: 'adopt'
 
       # See: https://github.com/marketplace/actions/maven-settings-action
+      - run: rm -f ~/.m2/settings.xml ;
       - name: Generate Maven settings for GitHub Packages
         uses: s4u/maven-settings-action@v2.8.0
         with:
           # ${GITHUB_ACTOR}
-          servers: '[{"id": "github", "username": "unused-fake-name", "password": "${GITHUB_TOKEN}"}]'
+          servers: '[{"id": "github", "username": "not-used", "password": "${ANTONYCC_REPOSITORY_GITHUB_PAT}"}]'
           githubServer: false
 
       - run: echo "~/.m2/settings.xml:" ; cat ~/.m2/settings.xml ;
@@ -53,7 +54,7 @@ jobs:
       - name: push
         uses: docker/build-push-action@v3
         with:
-          #context: .
+          context: .
           #file: ./Dockerfile
           push: true
           #tags: ${{ secrets.DOCKER_HUB_USERNAME }}/clockbox:latest
@@ -63,3 +64,6 @@ jobs:
           #tags: ${{ steps.meta.outputs.tags }}
           tags: diyaccounting-web:0.1-SNAPSHOT
           #labels: ${{ steps.meta.outputs.labels }}
+        env:
+          # Referenced in the settings.xml file which we generated above.
+          WAR_FILE: target/diyaccounting-web-0.1-SNAPSHOT.war
