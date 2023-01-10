@@ -12,12 +12,12 @@ purge="${1:-false}" ;
 # Clean-up of java components (not needed if running on a fresh container)
 if [[ "$clean" = "--clean" || "$purge" = "--purge" ]]; then
   rm -rf './target' ;
-  mvn ./mvnw --settings settings.xml clean install spring-boot:build-image ;
+ ./mvnw --settings settings.xml clean ;
 fi
 
 # Extract app image name using the Maven version
-mvn help:evaluate -Dexpression=project.version ;
-POM_VERSION=$(mvn help:evaluate -Dexpression=project.version | grep -v "^\[" | tail -1 ) ; echo "${POM_VERSION?}" ;
+./mvnw help:evaluate -Dexpression=project.version ;
+POM_VERSION=$(./mvnw help:evaluate -Dexpression=project.version | grep -v "^\[" | tail -1 ) ; echo "${POM_VERSION?}" ;
 export APP_IMAGE="diyaccounting-web:${POM_VERSION?}" ; echo "${APP_IMAGE?}" ;
 
 # Clean-up of docker elements (not needed if running on a fresh container)
@@ -27,7 +27,7 @@ if [ "$purge" = "--purge" ]; then
 fi
 
 # Build java components and move resources to target/classes
-mvn install ;
+./mvnw install spring-boot:build-image ;
 
 # Build docker images to create a local cluster
 mkdir -p './target/mirror'

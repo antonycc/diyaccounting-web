@@ -1,19 +1,22 @@
 package uk.co.diyaccounting.web;
 
+import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Arrays;
 
 @SpringBootApplication
 @ImportResource("classpath:/external-spring-beans.xml")
 public class DiyAccountingSpringBootApplication {
+
+	@Autowired
+	AppContextEventListener appContextEventListener;
 
 	private static final Logger logger = LoggerFactory.getLogger(DiyAccountingSpringBootApplication.class);
 
@@ -37,6 +40,9 @@ public class DiyAccountingSpringBootApplication {
 		System.out.println("Application for diyaccounting-web starting.");
 		logger.info("Application for diyaccounting-web is logging.");
 
+		// Log all environment variables
+		logger.info("System.getenv(): {}", System.getenv());
+
 		System.out.println("These are the system properties:");
 		System.getProperties().forEach((k, v) -> System.out.println(k + ":" + v));
 
@@ -54,15 +60,21 @@ public class DiyAccountingSpringBootApplication {
 
 		String baseDir = System.getProperty("user.dir");
 		logger.info("System.getProperty(\"user.dir\"): {}", baseDir);
-		String homePageDocument = "target/classes/test-content/HomePage.md";
+		//String homePageDocument = "target/classes/test-content/HomePage.md";
 
-		Path homePagePath = Path.of(baseDir, "/", homePageDocument);
-		try { logger.info("Size of {} is {}", homePagePath, Files.size(homePagePath)); }
-		catch (Exception e) { logger.error("Error getting size of {}", homePagePath, e);}
+		//Path homePagePath = Path.of(baseDir, "/", homePageDocument);
+		//try { logger.info("Size of {} is {}", homePagePath, Files.size(homePagePath)); }
+		//catch (Exception e) { logger.error("Error getting size of {}", homePagePath, e);}
 
-		Path homePageRelativePath = Path.of(homePageDocument);
-		try { logger.info("Size of {} is {}", homePageRelativePath, Files.size(homePageRelativePath)); }
-		catch (Exception e) { logger.error("Error getting size of {}", homePageRelativePath, e);}
+		//Path homePageRelativePath = Path.of(homePageDocument);
+		//try { logger.info("Size of {} is {}", homePageRelativePath, Files.size(homePageRelativePath)); }
+		//catch (Exception e) { logger.error("Error getting size of {}", homePageRelativePath, e);}
+	}
+
+	@PostConstruct
+	public void init() {
+		logger.info("These are the active environment properties:");
+		appContextEventListener.printActiveProperties();
 	}
 
 }

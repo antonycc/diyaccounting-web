@@ -9,27 +9,29 @@
 # Browse: curl --head http://localhost:8081/home.html
 version: '3.8'
 services:
+
   # See: https://bradjolicoeur.com/Article/spring-cloud-config-server-for-local-development
   # curl http://localhost:8888/actuator/health
-  config:
-    image: hyness/spring-cloud-config-server
-    ports:
-      - 8888:8888
-    volumes:
-      - ./docker/web/etc/diyaccounting-web:/config:ro
-    environment:
-      - SPRING_PROFILES_ACTIVE=native
+  #config:
+  #  image: hyness/spring-cloud-config-server
+  #  ports:
+  #    - 8888:8888
+  #  volumes:
+  #    - ./docker/web/etc/diyaccounting-web:/config:ro
+  #  environment:
+  #    - SPRING_PROFILES_ACTIVE=native
+  #networks:
+  #  - admin
+  #  - public
+
   # Built with
   # $ source ./github-antonycc-keys.sh
   # $ ./mvnw --settings settings.xml clean install spring-boot:build-image
-    networks:
-      - admin
-      - public
   web:
-    depends_on:
-      - config
-    links:
-      - config
+    #depends_on:
+    #  - config
+    #links:
+    #  - config
     image: "${APP_IMAGE}"
     ports:
       - 8080:8080
@@ -48,7 +50,9 @@ services:
       # e.g. catalogue.stockUrn=urn:diyaccounting.co.uk:file:///var/data/stock
       - ./test-stock:/var/data/stock:ro
     environment:
-      - spring.cloud.config.uri:"http://config:8888"
+      - SPRING_PROFILES_ACTIVE=docker
+     # - spring-boot.run.profiles=docYker
+     # - spring.cloud.config.uri:"http://config:8888"
 #      - logging.level.root=INFO
 #      - site.vat=00.0f
 #      - site.language=en-gb
