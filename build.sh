@@ -16,9 +16,9 @@ if [[ "$clean" = "--clean" || "$purge" = "--purge" ]]; then
 fi
 
 # Extract app image name using the Maven version
-./mvnw help:evaluate -Dexpression=project.version ;
-POM_VERSION=$(./mvnw help:evaluate -Dexpression=project.version | grep -v "^\[" | tail -1 ) ; echo "${POM_VERSION?}" ;
-export APP_IMAGE="diyaccounting-web:${POM_VERSION?}" ; echo "${APP_IMAGE?}" ;
+#./mvnw help:evaluate -Dexpression=project.version ;
+#POM_VERSION=$(./mvnw help:evaluate -Dexpression=project.version | grep -v "^\[" | tail -1 ) ; echo "${POM_VERSION?}" ;
+#export APP_IMAGE="diyaccounting-web:${POM_VERSION?}" ; echo "${APP_IMAGE?}" ;
 
 # Clean-up of docker elements (not needed if running on a fresh container)
 docker compose down --remove-orphans ;
@@ -28,6 +28,7 @@ fi
 
 # Build java components and move resources to target/classes
 ./mvnw install spring-boot:build-image ;
+docker build --tag diyaccounting-web:latest .
 
 # Build docker images to create a local cluster
 mkdir -p './target/mirror'

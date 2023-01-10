@@ -1,7 +1,8 @@
 # Run the build docker image using file system resources
 # Usage:
+# $ source ./github-antonycc-keys.sh
 # $ ./mvnw --settings settings.xml clean install
-# $ export APP_IMAGE=diyaccounting-web:0.1-SNAPSHOT
+# $ docker build --tag diyaccounting-web:latest .
 # $ docker compose build --no-cache --pull
 # $ docker compose up --force-recreate --detach
 # $ docker compose logs --tail="all" --follow
@@ -10,36 +11,15 @@
 version: '3.8'
 services:
 
-  # See: https://bradjolicoeur.com/Article/spring-cloud-config-server-for-local-development
-  # curl http://localhost:8888/actuator/health
-  #config:
-  #  image: hyness/spring-cloud-config-server
-  #  ports:
-  #    - 8888:8888
-  #  volumes:
-  #    - ./docker/web/etc/diyaccounting-web:/config:ro
-  #  environment:
-  #    - SPRING_PROFILES_ACTIVE=native
-  #networks:
-  #  - admin
-  #  - public
-
   # Built with
   # $ source ./github-antonycc-keys.sh
   # $ ./mvnw --settings settings.xml clean install spring-boot:build-image
+  # $ docker build --tag diyaccounting-web:latest .
   web:
-    #depends_on:
-    #  - config
-    #links:
-    #  - config
-    image: "${APP_IMAGE}"
+    image: diyaccounting-web:latest
     ports:
       - 8080:8080
     volumes:
-      # WebApp classpath location referenced by content.xml and pom-old-parent.xml for jetty
-      # e.g.: base="/etc/gb-web" to load Spring properties
-      # e.g.: <extraClasspath>/etc/gb-web</extraClasspath>
-      # - ./src/test/docker/web/etc/diyaccounting-web:/etc/diyaccounting-web:ro
       # Content items and assets to be loaded from the filesystem referenced by catalogue.properties.
       # e.g. catalogue.productContentBasePath=urn:diyaccounting.co.uk:file:///var/data/content/
       - ./src/main/resources/test-content:/var/data/content:ro
@@ -51,29 +31,6 @@ services:
       - ./test-stock:/var/data/stock:ro
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-     # - spring-boot.run.profiles=docYker
-     # - spring.cloud.config.uri:"http://config:8888"
-#      - logging.level.root=INFO
-#      - site.vat=00.0f
-#      - site.language=en-gb
-#      - site.logo=styles/label/logo.png
-#      - site.name=Dockerised DIY Accounting
-#      - site.fb=Dockerised.DIY.Accounting.Software
-#      - site.organisation=Dockerised DIY Accounting Limited Organisation
-#      - site.vatNumber=(Dockerised not registered)
-#      - site.email=dockerised.support@diyaccounting.co.uk
-#      - site.url=http://localhost:8080/gb-web/
-#      - site.paypal.hostedbutton.id=37EV7JXJ5UY6A
-#      - site.paypal.hostedbutton.type=business
-#      - site.paypal.hostedbutton.environment=sandbox
-#      - catalogue.catalogueResource=urn:diyaccounting.co.uk:file:///var/data/catalogue/catalogue.txt
-#      - catalogue.catalogueNamesResource=urn:diyaccounting.co.uk:file:///var/data/catalogue/catalogueNameContentItemName.properties
-#      - catalogue.catalogueBundlePriceResource=urn:diyaccounting.co.uk:file:///var/data/catalogue/catalogueBundlePrices.properties
-#      - catalogue.stockPath=urn:diyaccounting.co.uk:file:///var/data/stock
-#      - content.pageContentBasePath=urn:diyaccounting.co.uk:file:///var/data/content/
-#      - content.productContentBasePath=urn:diyaccounting.co.uk:file:///var/data/content/
-#      - content.articleContentBasePath=urn:diyaccounting.co.uk:file:///var/data/content/
-#      - content.imageContentPrefix=http://localhost[CONTENT-HOST]:8081/
     networks:
       - admin
       - public
