@@ -19,7 +19,7 @@ import java.util.Arrays;
 // Otherwise the gb-web-local is needed on the classpath
 // uk.co.diyaccounting.present.ops.Application
 @SpringBootApplication
-@ImportResource("classpath:/spring-boot-context.xml")
+@ImportResource("classpath:/spring-boot-context.xml.unused")
 @ComponentScan(basePackages = { "uk.co.diyaccounting.web.config", "uk.co.diyaccounting.web.controller"})
 public class Application {
 

@@ -141,23 +141,6 @@ $ ./mvnw --settings settings.xml clean install spring-boot:build-image
 $
 ```
 
-Docker build
-============
-TODO: remove, once the Dockerfile is removed.
-The Docker build is redundant because the Maven build produces a Docker image from the same Dockerfile.
-This may be useful for debugging the Docker build.
-```bash
-$ source ./github-antonycc-keys.sh
-$ ./mvnw --settings settings.xml clean install
-... [INFO] BUILD SUCCESS ...
-$ docker build --build-arg WAR_FILE=diyaccounting-web-0.1-SNAPSHOT.war .
- => [2/2] COPY target/diyaccounting-web-0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war                                             0.1s
- => exporting to image                                                                                                                  0.2s
- => => exporting layers                                                                                                                 0.2s
- => => writing image sha256:d83142d478ff321cf10ae0b21d64a34c1ada5fa3b9c53148809e4e35ac48a06b
-$ 
-```
-
 Running with Docker compose
 ===========================
 TODO: Work in progress, currently the Spring dispatcher servlet is not being found.

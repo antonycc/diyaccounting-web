@@ -17,7 +17,7 @@ import java.util.UUID;
  * @author Antony
  */
 //@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations = { "classpath:/spring-context.xml" })
+//@ContextConfiguration(locations = { "classpath:/spring-context.xml.unused" })
 @SpringBootTest
 public class StringHelperLogViaSpringBeanTest {
 

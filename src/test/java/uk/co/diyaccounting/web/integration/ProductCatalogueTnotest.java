@@ -21,7 +21,7 @@ import java.io.IOException;
  * @author Antony
  */
 //@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations = { "classpath:/content-spring-context.xml" })
+//@ContextConfiguration(locations = { "classpath:/content-spring-context.xml.unused" })
 @SpringBootTest
 public class ProductCatalogueTnotest {
 

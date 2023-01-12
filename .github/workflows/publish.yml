@@ -1,4 +1,5 @@
 name: Build and Publish Docker Image to GitHub Packages
+
 on:
   #push:
   #  branches:
@@ -6,6 +7,11 @@ on:
   #release:
   #  types: [created]
     workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   publish:
     runs-on: ubuntu-latest 
@@ -70,5 +76,3 @@ jobs:
           tags: diyaccounting-web:latest ${{ steps.meta.outputs.tags }}
           #tags: diyaccounting-web:latest
           labels: ${{ steps.meta.outputs.labels }}
-          #build-args: |
-          #  WAR_FILE=diyaccounting-web-0.1-SNAPSHOT.war
