@@ -1,0 +1,47 @@
+# Run the published build docker image using file system web resources
+# Usage:
+# $ docker compose --file ./docker-compose-published.yml build --no-cache --pull
+# $ docker compose --file ./docker-compose-published.yml up --force-recreate --detach
+# $ docker compose --file ./docker-compose-published.yml logs --tail="all" --follow
+# $ docker compose --file ./docker-compose-published.yml down --remove-orphans
+# Browse: curl --head http://localhost:8081/home.html
+version: '3.8'
+
+services:
+
+  web:
+    image: ghcr.io/antonycc/diyaccounting-web:main
+    ports:
+      - 8080:8080
+    volumes:
+      - ./src/main/resources/test-content:/var/data/content:ro
+      - ./src/main/resources/test-catalogue:/var/data/catalogue:ro
+      - ./test-stock:/var/data/stock:ro
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - admin
+      - public
+  http:
+    depends_on:
+      - web
+    links:
+      - web
+    build:
+      context: docker/http
+    ports:
+      - 8081:80
+    volumes:
+      - ./src/main/webapp:/usr/share/webapp:ro
+      - ./src/main/resources/content/assets:/usr/share/content/assets:ro
+    networks:
+      - app
+      - public
+
+networks:
+  admin:
+    driver: bridge
+  app:
+    driver: bridge
+  public:
+    driver: bridge

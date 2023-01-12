@@ -3,6 +3,19 @@ Present
 
 The browser based application for https://diyaccounting.co.uk/
 
+Quick start for web development
+===============================
+
+Run the published build docker image using file system web resources:
+```bash
+$ docker compose --file ./docker-compose-published.yml build --no-cache --pull
+$ docker compose --file ./docker-compose-published.yml up --force-recreate --detach
+$ docker compose --file ./docker-compose-published.yml logs --tail="all" --follow
+$ docker compose --file ./docker-compose-published.yml down --remove-orphans
+```
+Open the home page in a browser http://localhost:8081/home.html then edit file `./src/main/webapp/home.html` in the
+local file system and refresh the browser to see the change immediately.
+
 TODO
 ====
 
@@ -10,13 +23,10 @@ Open Source project
 -------------------
 ```
 Static site launch:
-[ ] Build Docker image with diyaccounting-web-bootable-war (possibly continuing to use Tomcat10 in Spring boot for the external classpath)
-[ ] Add sample zips to built image (currently in test-stock) and also sync from published Docker images.
+[ ] Use local storage (and or cookies) to go direct to the donation page rthen return to the selected product after donating.
 [ ] Add Swagger
 [ ] Run link checker 
 [ ] Ensure the stage version prevents crawling
-[ ] Docker config in gb-web to mount the static web files directly to allow for local development
-[ ] gb-web-run-with-static-files published images for gb-web static site, mounts gb-web static files
 [ ] Contributor guidelines
 ```
 
@@ -45,16 +55,6 @@ Major bugs
     <span><img src="api/images?contentType=image/png&image=/uk/co/diyaccounting/ct/attachments/745013253/887783438.png" /></span>
 </p>
 ```
-
-Build Improvements:
-```
-[ ] support docker-compose by starting with one of these images: https://community.atlassian.com/t5/Bitbucket-questions/Docker-compose-and-pipelines/qaq-p/67913
-[ ] add own build image Dockerfile to this repository
-[ ] publish own build image in separate pipelines file
-[ ] reference own image from default pipelines file and move installed packages to image
-[ ] Test HTTP pass through download URL
-[ ] Remove these two slashes: file://
-``
 
 Optimise CSS:
 ```
@@ -141,6 +141,15 @@ $ ./mvnw --settings settings.xml clean install spring-boot:build-image
 $
 ```
 
+# Testing and running the webapp with Spring Boot
+See ./gb-web/pom.xml, tomcat profile.
+```bash
+$ source ./github-antonycc-keys.sh
+$ ./mvnw --settings ../settings.xml clean spring-boot:run
+```
+Then go to http://localhost:8080/home.html
+
+
 Running with Docker compose
 ===========================
 TODO: Work in progress, currently the Spring dispatcher servlet is not being found.
@@ -155,10 +164,6 @@ $ docker compose logs --tail="all" --follow
 $ docker compose down --remove-orphans
 ```
 Browse: curl --head http://localhost:8081/home.html
-
-TODO: Add testing with containerised app
-----------------------------------------
-
 
 Encrypt generated credentials
 -----------------------------
@@ -244,67 +249,6 @@ git commit -m 'Updated requirements'
 git push origin HEAD:master
 ```
 
-
-Local running from pre-built jar and external doc root
-======================================================
-TODO: This hasn't been reviewed since the Spring Boot migration.
-
-DIY Accounting can run locally in Tomcat with content and state from the local file system.
-To help with editing page artifacts such as HTML and JS, these are served from a nginx mounting `./src/main/webapp`
-
-The containers are:
-* `content` - metadata and assets served over http
-* `app` - the DIY Accounting web app gb-web from a pre-built jar on port `8080`
-* `web` - serving mounted DIY Accounting's HTML on port `8081` from a workspace folder and proxying APIs to `app`
-
-To run DIY Accounting locally:
-```bash
-$ ./build-tool-mvn-package-in-docker.sh
-(With 4 CPUs an 16GB ram, build time 12 minutes 53 seconds)
-$ docker compose build
-$ docker compose up
-```
-Then load the DIY Accounting index page http://localhost:8081/home.html on nginx.
-
-The file above is served from:
-```bash
-$ ls -l ./src/main/webapp/home.html
--rw-r--r--  1 antony  staff  8787  7 Mar 15:41 ./src/main/webapp/home.html
-```
-Try editing the text "Know what you're looking for?". This appears top left and is hard coded in the HTML. A change
-should appear with a page refresh because nginx is serving the doc root directly from `./src/main/webapp`.
-
-Other links:
-* DIY Accounting Home page gb-web on Tomcat in Docker: http://localhost:8080/gb-web/home.html (this from a pre-built app)
-* Sample webapp on Tomcat in Docker: http://localhost:8080/sample/
-* API call to curl gb-web on Tomcat in Docker: http://localhost:8080/gb-web/api/page
-* DIY Home page as static HTML in nginx doc root in Docker: http://localhost:8081/home.html
-
-See also:
-* [Deploy war from location](https://github.com/ardydedase/docker-tomcat-war/blob/master/docker compose.yml)
-* [nginx reverse proxy](https://stackoverflow.com/questions/52823279/how-to-nginx-reverse-proxy-outside-of-docker-to-proxy-pass-to-docker-containers)
-* [Parameterise Docker compose](https://stackoverflow.com/questions/43544328/pass-argument-to-docker compose)
-* how-to-create-a-new-bucket-and-add-files-to-a-specific-folder-using-local-stack-using-docker-414a1d035d19
-
- Ok: http://localhost:8080/gb-web/feature.html?feature=VatReturnsFeature&product=CompanyAccountsProduct
-!Ok: http://localhost:8080/gb-web/feature.html?feature=SalesSpreadsheetFeature
-
-# Testing and running the webapp with a bundled Tomcat
-See ./gb-web/pom.xml, tomcat profile.
-```bash
-$ source ./github-antonycc-keys.sh
-$ mvn --settings settings.xml clean install
-$ cd gb-web
-$ mvn --settings ../settings.xml clean  spring-boot:run
-```
-Then go to http://localhost:8080/home.html
-
-# Attach a shell
-```bash
-$ docker exec -it gb-web_content_1 /bin/bash
-
-```
-
 Releasing
 =========
 TODO: This hasn't been reviewed since the GitHub migration.
@@ -312,24 +256,24 @@ TODO: This hasn't been reviewed since the GitHub migration.
 # two stage release
 ```bash
 $ source ./github-antonycc-keys.sh
-$ mvn --settings settings.xml release:prepare
-$ mvn --settings settings.xml release:perform
+$ ./mvnw --settings settings.xml release:prepare
+$ ./mvnw --settings settings.xml release:perform
 ```
 
 # two stage release re-tried
 ```bash
 $ source ./github-antonycc-keys.sh
-$ mvn --settings settings.xml release:prepare -Dresume=false
-$ mvn --settings settings.xml release:perform
+$ ./mvnw --settings settings.xml release:prepare -Dresume=false
+$ ./mvnw --settings settings.xml release:perform
 ```
 
 # full console run - the middle mnv line is suitable for a CI server with it's own workspace
 ```bash
 $ source ./github-antonycc-keys.sh
-$ mvn --settings settings.xml --batch-mode clean release:clean release:prepare -DdryRun=true
+$ ./mvnw --settings settings.xml --batch-mode clean release:clean release:prepare -DdryRun=true
 $ git reset --hard HEAD && find . -name "*.next" -type f -exec rm "{}" \; && find . -name "*.tag" -type f -exec rm "{}" \;
-$ mvn --settings settings.xml --batch-mode clean release:clean release:prepare
-$ mvn release:clean
+$ ./mvnw --settings settings.xml --batch-mode clean release:clean release:prepare
+$ ./mvnw release:clean
 ```
 
 Backlog
