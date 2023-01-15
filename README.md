@@ -279,7 +279,7 @@ $ ./mvnw release:clean
 Backlog
 =======
 
-MDCMS Enhancements:
+CMS Enhancements:
 ```
 [ ] Remove bundles as a conept with CommercialProduct beimg saleable (start with Bundle.java and Product.bundleNames)
 [ ] Clean all the XHTML examples to use a simple HTML page
