@@ -26,7 +26,6 @@ Static site launch:
 [ ] Use local storage (and or cookies) to go direct to the donation page rthen return to the selected product after donating.
 [ ] Add Swagger
 [ ] Run link checker 
-[ ] Ensure the stage version prevents crawling
 [ ] Contributor guidelines
 ```
 
@@ -68,8 +67,6 @@ Optimise CSS:
 
 XML and Freemarker deprecation:
 ```
-[ ] Add email templates to CMS
-[ ] Change the email templates to a simple string replacement templating technology
 [ ] Remove xhtml bindings in the DIY Accounting DTOs (Keep them for cms-lib)
 [ ] Generate the site map on CMS publish and deploy as a static artifact
 [ ] Remove view resolver from  Spring configuration
@@ -296,7 +293,6 @@ SEO:
 [ ] Do we need Product.conversionCode for Google AdWords ?
 [ ] Review all articles
 [ ] Put the user guides online as content
-[ ] Publish PDF guides to the stock folder
 [ ] Capture review data (TrustPilot)
 [ ] Reviews page (add onto the top of our customers)
 [ ] Product nav. occupies too much screen
@@ -305,8 +301,4 @@ SEO:
 [ ] Check Jay's list
 [ ] Add Cookie banner
 [ ] Add Something for GDPR
-[ ] Create multi-language support with /eng & /nld (check ISO) template folders and # eng & # nld MD sections
-[ ] Script generation of alternate language content
-[ ] Identify and apply the optimal strategy for incoming never valid links
-[ ] Identify and apply the optimal strategy for purging outdated links
 ```
