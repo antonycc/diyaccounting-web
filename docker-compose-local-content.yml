@@ -9,16 +9,16 @@ version: '3.8'
 
 services:
 
-  catalogue:
-    image: ghcr.io/antonycc/diy-accounting:main
-  content:
-    image: ghcr.io/antonycc/diy-accounting-mdcms:main
   web:
     image: ghcr.io/antonycc/diyaccounting-web:main
     ports:
       - 8080:8080
+    volumes:
+      - ./src/main/resources/test-content:/var/data/content:ro
+      - ./src/main/resources/test-catalogue:/var/data/catalogue:ro
+      - ./test-stock:/var/data/stock:ro
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_PROFILES_ACTIVE=local-content
     networks:
       - admin
       - public
@@ -33,7 +33,7 @@ services:
       - 8081:80
     volumes:
       - ./src/main/webapp:/usr/share/webapp:ro
-      #- ./src/main/resources/content/assets:/usr/share/content/assets:ro
+      - ./src/main/resources/content/assets:/usr/share/content/assets:ro
     networks:
       - app
       - public
