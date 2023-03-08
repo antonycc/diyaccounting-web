@@ -11,7 +11,11 @@ Run the published build docker image using file system web resources:
 $ docker compose --file ./docker-compose-published.yml build --no-cache --pull
 $ docker compose --file ./docker-compose-published.yml up --force-recreate --detach
 $ docker compose --file ./docker-compose-published.yml logs --tail="all" --follow
+```
+After use to stop and remove the containers, then remove all images:
+```
 $ docker compose --file ./docker-compose-published.yml down --remove-orphans
+$ docker system prune --all --volumes --force ;
 ```
 Open the home page in a browser http://localhost:8081/home.html then edit file `./src/main/webapp/home.html` in the
 local file system and refresh the browser to see the change immediately.

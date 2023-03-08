@@ -11,8 +11,12 @@ services:
 
   catalogue:
     image: ghcr.io/antonycc/diy-accounting:main
+    networks:
+      - app
   content:
     image: ghcr.io/antonycc/diy-accounting-mdcms:main
+    networks:
+      - app
   web:
     image: ghcr.io/antonycc/diyaccounting-web:main
     ports:
@@ -20,6 +24,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     networks:
+      - app
       - admin
       - public
   http:
@@ -33,7 +38,6 @@ services:
       - 8081:80
     volumes:
       - ./src/main/webapp:/usr/share/webapp:ro
-      #- ./src/main/resources/content/assets:/usr/share/content/assets:ro
     networks:
       - app
       - public
