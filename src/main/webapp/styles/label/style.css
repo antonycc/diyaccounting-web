@@ -5,12 +5,13 @@ ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,html,p,blockquote,fieldset,input,object,body
 a img,:link img,:visited img { border:none; outline: 0; }
 
 body {
-	background: url("bg.png");
+	/* background: url("bg.png"); */
 	font-family: helvetica, arial, sans-serif;
 	font-size: 12px;
 	color: #292a2a;
 	position: relative;
-	padding-top: 159px;
+	padding-top: 135px;
+	width: 100%;
 }
 
 .clear {
@@ -18,7 +19,6 @@ body {
 }
 
 .pageContainer {
-	width: 980px;
 	margin: 0 auto;
 	z-index: 1;
 }
@@ -123,21 +123,19 @@ a.basket:hover {
 
 /* ------------------------------- Floating Header ---------------------------------- */
 .headerContainer {
-	background: url("bg-header.png");
+	/*background: url("bg-header.png");*/
 	width: 100%;
-	height: 135px;
 	position: fixed;
 	top: 0;
 	left: 0;
-	padding: 20px 0px;
-	z-index: 2;
 }
 
 .header {
-	height: 134px;
-	width: 940px;
+	background-color: #f4f4f4;
+	padding-left:100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	margin: 0 auto;
-	border-bottom: 2px #bcbcbc solid;
 }
 
 .header .logo {
@@ -151,7 +149,8 @@ a.basket:hover {
 /* ------------------------------- Top Nav ---------------------------------- */
 .header .nav {
 	float: right;
-	margin-top: 55px;
+	margin-top: 50px;
+	padding-right: 200px;
 }
 
 .header .nav ul {
@@ -160,9 +159,9 @@ a.basket:hover {
 
 .header .nav ul li {
 	display: inline;
-	padding-right: 9px;
+	padding-right: 30px;
 	padding-left: 2px;
-	background: url("bg-topNav.png") no-repeat;
+	/* background: url("bg-topNav.png") no-repeat; */
 	background-position: right center;
 }
 
@@ -191,8 +190,8 @@ a.basket:hover {
 
 .strapLine {
 	height: 150px;
-	width: 940px;
-	border-bottom: 1px #bcbcbc solid;
+	padding-left: 100px;
+	padding-right: 120px;
 	margin: 0 auto 30px auto;	
 	background-position: 696px center;
 }

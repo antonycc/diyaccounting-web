@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap');
+
+/* General Style of the homepage  */
+
+.mainStyle {
+    padding-top: 90px;
+    padding-bottom: 70px;
+    padding-left: 60px;
+    padding-right: 60px;
+    height: 100%;
+
+}
+
+.title {
+
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Mulish', sans-serif;
+    padding: 0px 20px 0px 0px;
+
+}
+
+.subTitle{
+
+    font-size: 15px;
+    color: #f0f0f0;
+    font-family: 'Mulish', sans-serif;
+    font-weight: normal;
+    padding: 20px 0px 0px 0px;
+
+}
+
+.mainDesc {
+
+    font-size: 15px;
+    font-family: 'Mulish', sans-serif;
+    text-align: center;
+    padding: 0px 200px 0px 200px;
+
+}
+
+.desc {
+
+    font-size: 15px;
+    font-family: 'Mulish', sans-serif;
+
+}
+
+.buttons {
+    
+    background-color: #53e9a5;
+    border-radius: 5px;
+    padding: 7px 0px 7px 0px;
+    width: 100%;
+    border-style: none;
+
+
+}
+
+.buttons:hover {
+
+    background-color: #329f9f;
+    color: white;
+
+}
+
+.imgStyle {
+
+    size: 200px;
+
+}
+
+.separator {
+
+    width: 50px;
+    margin: 20px 20px 20px 0px
+
+}
+
+.conte {
+
+    display: flex;
+
+}
+
+.contetwo{
+
+    display: flex;
+    gap: 285px;
+
+}
+
+
+/* Hero's part of the homepage  */
+
+#heroDiv {
+
+    background: url("bg-new.svg");
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin-top: -12px;
+    margin-bottom: -40px;
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 40px;
+    padding-bottom: 80px;
+
+}
+
+#heroBoxDiv{
+    color: white;
+    padding-right: 60px;
+    padding-left: 60px;
+    padding-top: 70px;
+    padding-bottom: 50px;
+
+}
+
+#heroFormBoxDiv {
+
+    margin-top: 40px;
+    padding: 30px;
+
+}
+
+/* Costumer's Style of the homepage */
+
+.costumerslogo {
+    
+    width: 110px;
+    height: 110px;
+    padding: 20px 0px 0px 0px;
+
+}
+
+/* Service Style of the homepage */
+
+.servicesCard {
+
+    background-color: #554ade;
+    color: #ffffff;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 70px;
+    border-bottom-left-radius: 20px;
+    padding: 60px;
+    width: 100%;
+    height: 100%;
+
+}
+
+.servicesCard:hover {
+
+    box-shadow: -7px 8px 3px 1px #d6d7d8;
+
+}
+
+.servicesTitleCard {
+
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+
+}
+
+.servicesIconCard {
+
+    font-size: 45px;
+
+}
+
+/* Costumers Style of the homepage */
+
+#costumersCard {
+
+    background-color: #ffffff;
+    color: #0000;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 70px;
+    border-bottom-left-radius: 20px;
+    margin-left: -60px;
+    margin-top: 130px;
+    padding: 80px 40px 70px 50px;
+    box-shadow: 0px 2px 10px 3px #d6d7d8;
+    width: 100%;
+    height: 100%;
+
+}
+
+#imageCostumerCard {
+
+    background: url("bg-background.jpg");
+    background-size: cover; 
+    border-top-left-radius: 70px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 70px;
+    border-bottom-left-radius: 20px;
+    width: 100%;
+    height: 730px;
+    margin-top: 60px;
+
+}
+
+/* Blog Style of the homepage */
+
+#blogdiv {
+
+    width: 100%;
+    padding: 0px 0px 0px 0px
+
+}
+
+#faqdiv {
+
+    width: 100%;
+    padding: 100px 0px 0px 0px
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .mainStyle {
+        padding: 60px 20px 60px 20px;
+        height: 100%;
+    
+    }    
+
+    .title {
+
+        font-size: 26px;
+        padding: 0px 0px 0px 0px;
+    
+    }
+
+    .subTitle{
+
+        padding: 20px 0px 0px 0px;
+    
+    }
+
+    .mainDesc {
+
+        font-size: 15px;
+        font-family: 'Mulish', sans-serif;
+        text-align: center;
+        padding: 0px 0px 0px 0px;
+    
+    }
+    
+    .desc {
+    
+        font-size: 16px;
+    
+    }
+
+    .conte {
+
+        display: flex;
+
+    }
+
+    .contetwo{
+
+        display: block;
+
+    }
+    
+    .buttons {
+        
+        width: 95%;
+    
+    
+    }
+
+
+    /* Hero's part of the homepage  */
+
+    #heroDiv {
+
+        width: 100%;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 40px;
+
+    }
+
+    #heroBoxDiv{
+        
+        padding: 50px 30px 30px 30px;
+
+    }
+
+
+    /* Costumer's Style of the homepage */
+
+    .costumerslogo {
+        
+        width: 30%;
+        height: 80%;
+        padding: 20px 0px 0px 0px;
+
+    }
+
+    /* Service Style of the homepage */
+
+    .servicesCard {
+
+        padding: 20px 20px 40px 20px;
+        gap: 20px;
+
+    }
+
+    /* Costumers Style of the homepage */
+
+    #costumersCard {
+
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        margin-left: -300px;
+        margin-right: 20px;
+        margin-top: 20px;
+        padding: 60px 30px 70px 30px;
+        text-align: center;
+    }
+
+    #imageCostumerCard {
+
+        visibility: hidden;
+    
+    }
+
+    /* Blog Style of the homepage */
+
+    #blogdiv {
+
+        width: 100%;
+        padding: 0px 0px 0px 0px
+
+    }
+
+    #faqdiv {
+
+        width: 100%;
+        padding: 40px 0px 0px 0px
+
+    }
+
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+
+    .mainStyle {
+        padding: 60px 20px 60px 20px;
+        height: 100%;
+    
+    }    
+
+    .title {
+
+        font-size: 48px;
+        padding: 20px 0px 0px 0px;
+    
+    }
+
+    .subTitle{
+
+        font-size: 18px;
+        padding: 20px 80px 0px 80px;
+    
+    }
+
+    .mainDesc {
+
+        font-size: 18px;
+        font-family: 'Mulish', sans-serif;
+        text-align: center;
+        padding: 0px 0px 0px 0px;
+    
+    }
+    
+    .desc {
+    
+        font-size: 19px;
+    
+    }
+
+    .conte {
+
+        display: flex;
+
+    }
+
+    .contetwo{
+
+        display: flex;
+        gap: 100px;
+
+    }
+    
+    .buttons {
+        
+        width: 60%;
+    
+    }
+
+
+    /* Hero's part of the homepage  */
+
+    #heroDiv {
+
+        width: 100%;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 40px;
+
+    }
+
+    #heroBoxDiv{
+        
+        padding: 50px 40px 30px 40px;
+
+    }
+
+
+    /* Costumer's Style of the homepage */
+
+    .costumerslogo {
+        
+        width: 100px;
+        height: 100px;
+        padding: 0px 0px 0px 0px;
+
+    }
+
+    /* Service Style of the homepage */
+
+    .servicesCard {
+
+        padding: 40px 80px 40px 80px;
+        gap: 20px;
+
+    }
+
+    /* Costumers Style of the homepage */
+
+    #costumersCard {
+
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        margin-left: -680px;
+        margin-right: 10px;
+        margin-top: 20px;
+        padding: 60px 30px 70px 30px;
+        text-align: center;
+    }
+
+    #imageCostumerCard {
+
+        visibility: hidden;
+    
+    }
+
+    /* Blog Style of the homepage */
+
+    #blogdiv {
+
+        width: 100%;
+        padding: 0px 0px 0px 0px
+
+    }
+
+    #faqdiv {
+
+        width: 100%;
+        padding: 100px 0px 0px 0px
+
+    }
+
+}
