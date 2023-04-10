@@ -67,6 +67,17 @@
    <!-- Populated with load("header.html") -->
 </div>
 <div class="pageContainer">
+   <div>
+      <h2>Please donate to download</h2>
+      <br/>
+      <p>You can choose any amount or cancel out to skip the donation entirely.
+         We would appreciate any donation you can make and it will encourage
+         us to continue to develop the software. Perhaps you donated already and
+         just need to download an alternative version of the software. If so,
+         click donate and then cancel out of the PayPal screen.
+      </p>
+      <br/>
+   </div>
    <!-- See: https://developer.paypal.com/sdk/donate/ -->
    <div id="donate-button-container">
       <div id="donate-button"></div>
@@ -108,15 +119,17 @@
          }
       </script>
    </div>
-   <br/>
-   <h2>Click "Donate" above or continue to<h2>
-   <a href="#" on onclick="downloadPackage();" class="basket">Download</a>
+   <div id="download-button-container">
+      <br/>
+      <a href="#" onclick="downloadPackage();">Download without donating</a>
+   </div>
 </div>
 <div id="footer">
    <!-- Populated with load("footer.html") -->
 </div>
 </body>
-<script defer>
-   $(this).closest('form').submit()
+<script defer type="application/javascript">
+   $('#download-button-container').hide();
+   $(window).on('focus', function() { $('#download-button-container').show(); });
 </script>
 </html>

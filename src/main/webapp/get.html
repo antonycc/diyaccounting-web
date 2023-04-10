@@ -63,12 +63,6 @@
           params += '&amp;paypalHostedButtonEnvironment=' + $('#paypalHostedButtonEnvironment').val();;
          window.location.href = 'donatepaypal.html?' + params.replaceAll('amp;', '');
       }
-      function donotDonate() {
-          const product = $('#selectedProduct').val();
-          const period = $('#selectedPeriod').val();
-          let params = 'product=' + product + '&amp;period=' + period;
-          window.location.href = 'download.html?' + params.replaceAll('amp;', '');
-      }
    </script>
 </head>
 
@@ -93,11 +87,7 @@
          </div>
          <div class="checkout">
             {{#if formattedPrice}}
-                <table>
-                    <tr><td><a href="#" onclick="paypalDonate();" class="basket">Download</a></td></tr>
-                    <tr><td>&nbsp;</td></tr>
-                    <tr><td><a href="#" onclick="donotDonate();">Download without donating</a></td></tr>
-                 </table>
+                <a href="#" onclick="paypalDonate();" class="basket">Download</a>
             {{else}}
                <p>Select a product and period.</p>
             {{/if}}
